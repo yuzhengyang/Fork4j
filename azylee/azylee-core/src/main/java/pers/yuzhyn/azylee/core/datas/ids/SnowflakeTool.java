@@ -1,7 +1,7 @@
 package pers.yuzhyn.azylee.core.datas.ids;
 
 
-public class IdWorker {
+public class SnowflakeTool {
 
     //因为二进制里第一个 bit 为如果是 1，那么都是负数，但是我们生成的 id 都是正数，所以第一个 bit 统一都是 0。
 
@@ -42,7 +42,7 @@ public class IdWorker {
 
 
 
-    public IdWorker(long workerId, long datacenterId, long sequence) {
+    public SnowflakeTool(long workerId, long datacenterId, long sequence) {
 
         // 检查机房id和机器id是否超过31 不能小于0
         if (workerId > maxWorkerId || workerId < 0) {

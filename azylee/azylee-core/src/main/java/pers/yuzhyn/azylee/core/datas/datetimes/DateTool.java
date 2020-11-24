@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
-public class DateUtil {
+public class DateTool {
 
     public static LocalDateTime toLocalDateTime(Date date) {
         Instant instant = date.toInstant();
