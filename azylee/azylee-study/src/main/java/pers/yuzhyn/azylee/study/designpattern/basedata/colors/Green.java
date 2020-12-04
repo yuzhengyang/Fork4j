@@ -1,0 +1,9 @@
+package pers.yuzhyn.azylee.study.designpattern.basedata.colors;
+
+public class Green implements Color {
+
+    @Override
+    public void fill() {
+        System.out.println("Inside Green::fill() method.");
+    }
+}
