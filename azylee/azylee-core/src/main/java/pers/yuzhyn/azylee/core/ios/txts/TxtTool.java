@@ -55,16 +55,16 @@ public class TxtTool {
         return false;
     }
 
-//    public static void main(String[] args) {
-//        {
-//            String pp = "d:\\tmp\\t1.txt";
-//            FileTool.recreate(pp);
-//            long time = System.currentTimeMillis();
-//            for (int i = 0; i < 10; i++) {
-//                TxtTool.append(pp, "UuidTool.get()");
-//            }
-//            long time2 = System.currentTimeMillis();
-//            System.out.println("append 方法 执行 共用时：" + (time2 - time));
-//        }
-//    }
+    public static void main(String[] args) {
+        {
+            String pp = "d:\\tmp\\niu\\ya\\t1.txt";
+            FileTool.recreate(pp);
+            long time = System.currentTimeMillis();
+            for (int i = 0; i < 10; i++) {
+                TxtTool.append(pp, "UuidTool.get()");
+            }
+            long time2 = System.currentTimeMillis();
+            System.out.println("append 方法 执行 共用时：" + (time2 - time));
+        }
+    }
 }
