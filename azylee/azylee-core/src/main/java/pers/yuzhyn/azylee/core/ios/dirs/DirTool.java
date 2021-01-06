@@ -22,7 +22,7 @@ public class DirTool {
         } catch (Exception ex) {
             Log.e(ex.getMessage());
         }
-        return null;
+        return path;
     }
 
     public static boolean create(String path) {

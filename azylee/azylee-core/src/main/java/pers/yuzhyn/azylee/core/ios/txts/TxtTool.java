@@ -2,7 +2,9 @@ package pers.yuzhyn.azylee.core.ios.txts;
 
 import pers.yuzhyn.azylee.core.datas.strings.StringConst;
 import pers.yuzhyn.azylee.core.datas.uuids.UuidTool;
+import pers.yuzhyn.azylee.core.ios.dirs.DirTool;
 import pers.yuzhyn.azylee.core.ios.files.FileTool;
+import pers.yuzhyn.azylee.core.logs.Log;
 import pers.yuzhyn.azylee.core.systems.souts.PrintTool;
 
 import javax.swing.text.html.Option;
@@ -56,15 +58,22 @@ public class TxtTool {
     }
 
     public static void main(String[] args) {
-        {
-            String pp = "d:\\tmp\\niu\\ya\\t1.txt";
-            FileTool.recreate(pp);
-            long time = System.currentTimeMillis();
-            for (int i = 0; i < 10; i++) {
-                TxtTool.append(pp, "UuidTool.get()");
-            }
-            long time2 = System.currentTimeMillis();
-            System.out.println("append 方法 执行 共用时：" + (time2 - time));
-        }
+        Log.e(DirTool.parent("d://niu"));
+        Log.e(DirTool.parent("d://"));
+        Log.e(DirTool.parent("/opt/ssa"));
+        Log.e(DirTool.parent("/opt"));
+        Log.e(DirTool.parent("/"));
+//        {
+//            String pp = "d:\\tmp\\niu\\ya\\t1.txt";
+//            FileTool.recreate(pp);
+//            long time = System.currentTimeMillis();
+//            for (int i = 0; i < 10; i++) {
+//                TxtTool.append(pp, "UuidTool.get()");
+//            }
+//            long time2 = System.currentTimeMillis();
+//            System.out.println("append 方法 执行 共用时：" + (time2 - time));
+//
+//
+//        }
     }
 }
