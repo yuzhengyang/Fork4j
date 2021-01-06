@@ -1,7 +1,7 @@
 package pers.yuzhyn.azylee.study.designpattern.creational.absfactory;
 
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.colors.Color;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.shapres.Shape;
+import pers.yuzhyn.azylee.study.designpattern.basedata.colors.Color;
+import pers.yuzhyn.azylee.study.designpattern.basedata.shapres.Shape;
 
 /**
  * 抽象工厂模式

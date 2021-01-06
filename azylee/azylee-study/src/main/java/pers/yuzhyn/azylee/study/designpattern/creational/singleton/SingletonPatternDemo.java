@@ -1,7 +1,7 @@
 package pers.yuzhyn.azylee.study.designpattern.creational.singleton;
 
 
-import pers.yuzhyn.sugar.common.utils.designpattern.creational.singleton.enums.Singleton;
+import pers.yuzhyn.azylee.study.designpattern.creational.singleton.enums.Singleton;
 
 /**
  * 经验之谈：

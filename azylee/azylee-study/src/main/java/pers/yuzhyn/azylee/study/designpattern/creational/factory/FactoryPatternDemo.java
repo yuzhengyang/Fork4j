@@ -1,6 +1,6 @@
 package pers.yuzhyn.azylee.study.designpattern.creational.factory;
 
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.shapres.Shape;
+import pers.yuzhyn.azylee.study.designpattern.basedata.shapres.Shape;
 
 /**
  * 工厂模式

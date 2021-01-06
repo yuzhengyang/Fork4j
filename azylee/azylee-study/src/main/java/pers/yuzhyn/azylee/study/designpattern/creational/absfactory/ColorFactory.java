@@ -1,10 +1,10 @@
 package pers.yuzhyn.azylee.study.designpattern.creational.absfactory;
 
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.colors.Blue;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.colors.Color;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.colors.Green;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.colors.Red;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.shapres.Shape;
+import pers.yuzhyn.azylee.study.designpattern.basedata.colors.Blue;
+import pers.yuzhyn.azylee.study.designpattern.basedata.colors.Color;
+import pers.yuzhyn.azylee.study.designpattern.basedata.colors.Green;
+import pers.yuzhyn.azylee.study.designpattern.basedata.colors.Red;
+import pers.yuzhyn.azylee.study.designpattern.basedata.shapres.Shape;
 
 public class ColorFactory extends AbstractFactory {
 

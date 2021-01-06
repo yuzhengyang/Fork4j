@@ -1,10 +1,10 @@
 package pers.yuzhyn.azylee.study.designpattern.creational.absfactory;
 
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.colors.Color;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.shapres.Circle;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.shapres.Rectangle;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.shapres.Shape;
-import pers.yuzhyn.sugar.common.utils.designpattern.basedata.shapres.Square;
+import pers.yuzhyn.azylee.study.designpattern.basedata.colors.Color;
+import pers.yuzhyn.azylee.study.designpattern.basedata.shapres.Circle;
+import pers.yuzhyn.azylee.study.designpattern.basedata.shapres.Rectangle;
+import pers.yuzhyn.azylee.study.designpattern.basedata.shapres.Shape;
+import pers.yuzhyn.azylee.study.designpattern.basedata.shapres.Square;
 
 public class ShapeFactory extends AbstractFactory {
 
