@@ -16,15 +16,24 @@ public enum DateTimeFormatPattern {
     /**
      * 标准日期时间：2020-11-24 14:40:00
      */
-    NORMAL_DATETIME("yyyy-MM-dd HH:mm:ss");
+    NORMAL_DATETIME("yyyy-MM-dd HH:mm:ss"),
+    /**
+     * 标准日期时间SP：2020-1-4 1:4:0
+     */
+    NORMAL_DATETIME_SP("yyyy-M-d H:m:s");
 
+
+    public static String[] getDateTimePattern() {
+        return new String[]{NORMAL_DATETIME.getPattern(), NORMAL_DATETIME_SP.getPattern(), SHORT_DATETIME.getPattern()};
+    }
+
+    //region 属性、构造函数、Getter And Setter
     String pattern;
 
     DateTimeFormatPattern(String pattern) {
         this.pattern = pattern;
     }
 
-    //region Getter And Setter
     public String getPattern() {
         return pattern;
     }

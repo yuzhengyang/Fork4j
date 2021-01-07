@@ -15,19 +15,21 @@ public class DateTool {
         return Date.from(dateTime.atZone(ZoneId.systemDefault()).toInstant());
     }
 
-    public static Date parse(String dateString) {
-        Date date = DateTool.parse(dateString, DateTimeFormatPattern.NORMAL_DATETIME.getPattern());
-        if (date == null) {
-            date = DateTool.parse(dateString, DateTimeFormatPattern.NORMAL_DATE.getPattern());
+    public static Date parse(String s) {
+        Date date = null;
+        for (String pattern : DateTimeFormatPattern.getDateTimePattern()) {
+            date = DateTool.parse(s, pattern);
+            if (date == null && s.length() < 12) date = DateTool.parse(s + " 00:00:00", pattern);
+            if (date != null) break;
         }
         return date;
     }
 
-    public static Date parse(String dateString, String format) {
-        if (StringTool.ok(dateString)) {
+    public static Date parse(String s, String format) {
+        if (StringTool.ok(s)) {
             SimpleDateFormat sdf = new SimpleDateFormat(format);
             try {
-                return sdf.parse(dateString);
+                return sdf.parse(s);
             } catch (Exception ex) {
                 Log.e(ex.getMessage());
             }
@@ -41,5 +43,10 @@ public class DateTool {
 
     public static Date parse(int year, int month, int day, int hour, int minute, int second) {
         return DateTool.parse(year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second);
+    }
+
+    public static void main(String[] args) {
+        Log.i(parse("2020-5-1 5:12:30").toString());
+        Log.i(parse("2020-5-1").toString());
     }
 }

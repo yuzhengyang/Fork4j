@@ -1,8 +1,11 @@
 package pers.yuzhyn.azylee.core.datas.datetimes;
 
+import pers.yuzhyn.azylee.core.logs.Log;
+
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class LocalDateTimeTool {
@@ -15,4 +18,28 @@ public class LocalDateTimeTool {
         return localDateTime;
     }
 
+    public static LocalDateTime parse(String s) {
+        LocalDateTime date = null;
+        for (String pattern : DateTimeFormatPattern.getDateTimePattern()) {
+            date = LocalDateTimeTool.parse(s, pattern);
+            if (date == null && s.length() < 12) date = LocalDateTimeTool.parse(s + " 00:00:00", pattern);
+            if (date != null) break;
+        }
+        return date;
+    }
+
+    public static LocalDateTime parse(String s, String format) {
+        LocalDateTime dateTime = null;
+        try {
+            dateTime = LocalDateTime.parse(s, DateTimeFormatter.ofPattern(format));
+        } catch (Exception ex) {
+            Log.e(ex.getMessage());
+        }
+        return dateTime;
+    }
+
+    public static void main(String[] args) {
+        Log.i(parse("2020-05-01 15:1:30").toString());
+        Log.i(parse("2020-05-01").toString());
+    }
 }
