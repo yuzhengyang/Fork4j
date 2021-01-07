@@ -1,8 +1,18 @@
 package pers.yuzhyn.azylee.core.datas.strings;
 
+import pers.yuzhyn.azylee.core.logs.Log;
+
 public class StringFillTool {
 
-    public static String headFill(String s, int length, String filler) {
+    /**
+     * 前缀补充字符
+     *
+     * @param s
+     * @param length
+     * @param filler
+     * @return
+     */
+    public static String prefixFill(String s, int length, String filler) {
         String result = s;
         for (int i = 0; i < length - s.length(); i++) {
             result = filler + result;
@@ -10,12 +20,36 @@ public class StringFillTool {
         return result;
     }
 
-    public static void main(String[] args) {
-        String name = "zhangfei";
-        String nameFilled = headFill(name, 20, "_");
+    /**
+     * 后缀补充字符
+     *
+     * @param s
+     * @param length
+     * @param filler
+     * @return
+     */
+    public static String suffixFill(String s, int length, String filler) {
+        String result = s;
+        for (int i = 0; i < length - s.length(); i++) {
+            result = result + filler;
+        }
+        return result;
+    }
 
-        System.out.println(name);
-        System.out.println(nameFilled);
-        System.out.println(nameFilled.length());
+    public static void main(String[] args) {
+        {
+            String name = "zhangfei";
+            String nameFilled = prefixFill(name, 20, "_");
+            Log.e(name);
+            Log.e(nameFilled);
+            Log.e(nameFilled.length() + "");
+        }
+        {
+            String name = "zhangfei";
+            String nameFilled = suffixFill(name, 20, "_");
+            Log.e(name);
+            Log.e(nameFilled);
+            Log.e(nameFilled.length() + "");
+        }
     }
 }

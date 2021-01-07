@@ -16,4 +16,13 @@ public class StringTool {
         }
         return true;
     }
+
+    public static boolean has(String s, String... words) {
+        for (String word : words) {
+            if (!s.contains(word)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
