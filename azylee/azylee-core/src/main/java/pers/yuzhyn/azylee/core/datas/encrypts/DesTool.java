@@ -43,7 +43,7 @@ public class DesTool {
      * @throws Exception
      */
     private static Key generateKey(String key) throws Exception {
-        key = StringFillTool.headFill(key, 8, FILL_CHAR);
+        key = StringFillTool.suffixFill(key, 8, FILL_CHAR);
         DESKeySpec dks = new DESKeySpec(key.getBytes(CHARSET));
         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(ALGORITHM);
         return keyFactory.generateSecret(dks);
