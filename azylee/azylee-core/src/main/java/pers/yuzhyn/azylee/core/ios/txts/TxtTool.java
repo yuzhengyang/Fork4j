@@ -1,19 +1,13 @@
 package pers.yuzhyn.azylee.core.ios.txts;
 
 import pers.yuzhyn.azylee.core.datas.strings.StringConst;
-import pers.yuzhyn.azylee.core.datas.uuids.UuidTool;
 import pers.yuzhyn.azylee.core.ios.dirs.DirTool;
 import pers.yuzhyn.azylee.core.ios.files.FileTool;
-import pers.yuzhyn.azylee.core.logs.Log;
-import pers.yuzhyn.azylee.core.systems.souts.PrintTool;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
-import javax.swing.text.html.Option;
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.StringTokenizer;
 
 public class TxtTool {
 
@@ -58,11 +52,11 @@ public class TxtTool {
     }
 
     public static void main(String[] args) {
-        Log.e(DirTool.parent("d://niu"));
-        Log.e(DirTool.parent("d://"));
-        Log.e(DirTool.parent("/opt/ssa"));
-        Log.e(DirTool.parent("/opt"));
-        Log.e(DirTool.parent("/"));
+        Alog.e(DirTool.parent("d://niu"));
+        Alog.e(DirTool.parent("d://"));
+        Alog.e(DirTool.parent("/opt/ssa"));
+        Alog.e(DirTool.parent("/opt"));
+        Alog.e(DirTool.parent("/"));
 //        {
 //            String pp = "d:\\tmp\\niu\\ya\\t1.txt";
 //            FileTool.recreate(pp);

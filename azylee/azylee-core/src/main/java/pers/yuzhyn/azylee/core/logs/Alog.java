@@ -1,6 +1,6 @@
 package pers.yuzhyn.azylee.core.logs;
 
-public class Log {
+public class Alog {
     public static void v(String s) {
         System.out.format("\33[32;2m%s%n",s);
     }

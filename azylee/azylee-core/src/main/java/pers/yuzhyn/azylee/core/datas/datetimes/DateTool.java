@@ -1,10 +1,9 @@
 package pers.yuzhyn.azylee.core.datas.datetimes;
 
 import pers.yuzhyn.azylee.core.datas.strings.StringTool;
-import pers.yuzhyn.azylee.core.logs.Log;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -31,7 +30,7 @@ public class DateTool {
             try {
                 return sdf.parse(s);
             } catch (Exception ex) {
-                Log.e(ex.getMessage());
+                Alog.e(ex.getMessage());
             }
         }
         return null;
@@ -46,7 +45,7 @@ public class DateTool {
     }
 
     public static void main(String[] args) {
-        Log.i(parse("2020-5-1 5:12:30").toString());
-        Log.i(parse("2020-5-1").toString());
+        Alog.i(parse("2020-5-1 5:12:30").toString());
+        Alog.i(parse("2020-5-1").toString());
     }
 }

@@ -1,5 +1,5 @@
 ```
-util 工具汇总（仅调用）
+util 工具汇总（仅调用，汇集其他工具类）
 tool 工具类
 format 格式化
 convert 转换器

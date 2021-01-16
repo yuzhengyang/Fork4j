@@ -1,6 +1,6 @@
 package pers.yuzhyn.azylee.core.datas.datetimes;
 
-import pers.yuzhyn.azylee.core.logs.Log;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -33,13 +33,13 @@ public class LocalDateTimeTool {
         try {
             dateTime = LocalDateTime.parse(s, DateTimeFormatter.ofPattern(format));
         } catch (Exception ex) {
-            Log.e(ex.getMessage());
+            Alog.e(ex.getMessage());
         }
         return dateTime;
     }
 
     public static void main(String[] args) {
-        Log.i(parse("2020-05-01 15:1:30").toString());
-        Log.i(parse("2020-05-01").toString());
+        Alog.i(parse("2020-05-01 15:1:30").toString());
+        Alog.i(parse("2020-05-01").toString());
     }
 }

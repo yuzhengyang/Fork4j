@@ -1,6 +1,6 @@
 package pers.yuzhyn.azylee.core.datas.strings;
 
-import pers.yuzhyn.azylee.core.logs.Log;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
 public class StringFillTool {
 
@@ -40,16 +40,16 @@ public class StringFillTool {
         {
             String name = "zhangfei";
             String nameFilled = prefixFill(name, 20, "_");
-            Log.e(name);
-            Log.e(nameFilled);
-            Log.e(nameFilled.length() + "");
+            Alog.e(name);
+            Alog.e(nameFilled);
+            Alog.e(nameFilled.length() + "");
         }
         {
             String name = "zhangfei";
             String nameFilled = suffixFill(name, 20, "_");
-            Log.e(name);
-            Log.e(nameFilled);
-            Log.e(nameFilled.length() + "");
+            Alog.e(name);
+            Alog.e(nameFilled);
+            Alog.e(nameFilled.length() + "");
         }
     }
 }

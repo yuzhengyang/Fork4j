@@ -1,14 +1,9 @@
 package pers.yuzhyn.azylee.core.ios.files;
 
 import pers.yuzhyn.azylee.core.ios.dirs.DirTool;
-import pers.yuzhyn.azylee.core.logs.Log;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
-import javax.sound.midi.Soundbank;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 public class FileTool {
     public static boolean isExist(String pathName) {
@@ -30,7 +25,7 @@ public class FileTool {
                     }
                 }
             } catch (Exception ex) {
-                Log.e(ex.getMessage());
+                Alog.e(ex.getMessage());
             }
             return false;
         }

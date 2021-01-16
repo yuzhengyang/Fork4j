@@ -1,7 +1,5 @@
 package pers.yuzhyn.azylee.core.datas.datetimes;
 
-import pers.yuzhyn.azylee.core.logs.Log;
-
 import java.util.Date;
 
 public class DatePassTool {

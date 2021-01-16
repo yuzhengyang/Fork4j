@@ -1,6 +1,6 @@
 package pers.yuzhyn.azylee.core.ios.dirs;
 
-import pers.yuzhyn.azylee.core.logs.Log;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.io.File;
 
@@ -20,7 +20,7 @@ public class DirTool {
             String strParentDirectory = file.getParent();
             return strParentDirectory;
         } catch (Exception ex) {
-            Log.e(ex.getMessage());
+            Alog.e(ex.getMessage());
         }
         return path;
     }
@@ -31,7 +31,7 @@ public class DirTool {
                 File file = new File(path);
                 return file.mkdirs();
             } catch (Exception ex) {
-                Log.e(ex.getMessage());
+                Alog.e(ex.getMessage());
                 return false;
             }
         }

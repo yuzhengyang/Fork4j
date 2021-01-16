@@ -1,7 +1,7 @@
 package pers.yuzhyn.azylee.core.datas.encrypts;
 
 import pers.yuzhyn.azylee.core.datas.strings.StringFillTool;
-import pers.yuzhyn.azylee.core.logs.Log;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -15,7 +15,7 @@ public class Md5Tool {
         try {
             secretBytes = MessageDigest.getInstance("md5").digest(s.getBytes());
         } catch (NoSuchAlgorithmException e) {
-            Log.e("java.security.MessageDigest 获取MD5算法失败");
+            Alog.e("java.security.MessageDigest 获取MD5算法失败");
         }
         md5code = new BigInteger(1, secretBytes).toString(16);
         md5code = StringFillTool.suffixFill(md5code, 32, "0");

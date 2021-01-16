@@ -1,7 +1,6 @@
 package pers.yuzhyn.azylee.core.ios.files;
 
 import pers.yuzhyn.azylee.core.datas.strings.StringTool;
-import pers.yuzhyn.azylee.core.logs.Log;
 
 public class FileTypeTool {
 

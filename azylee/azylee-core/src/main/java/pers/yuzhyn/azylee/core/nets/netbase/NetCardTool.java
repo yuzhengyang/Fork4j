@@ -1,6 +1,6 @@
 package pers.yuzhyn.azylee.core.nets.netbase;
 
-import pers.yuzhyn.azylee.core.logs.Log;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.net.NetworkInterface;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ public class NetCardTool {
             }
             return interfaces;
         } catch (Exception e) {
-            Log.e(e.getMessage());
+            Alog.e(e.getMessage());
         }
         return null;
     }
