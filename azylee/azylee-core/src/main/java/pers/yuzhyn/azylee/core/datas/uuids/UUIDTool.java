@@ -2,9 +2,9 @@ package pers.yuzhyn.azylee.core.datas.uuids;
 
 import java.util.UUID;
 
-public class UuidTool {
+public class UUIDTool {
 
-    public static UUID getUuid() {
+    public static UUID getUUID() {
         return UUID.randomUUID();
     }
 

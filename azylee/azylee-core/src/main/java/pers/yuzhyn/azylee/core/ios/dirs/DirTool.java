@@ -1,5 +1,6 @@
 package pers.yuzhyn.azylee.core.ios.dirs;
 
+import pers.yuzhyn.azylee.core.datas.strings.StringTool;
 import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.io.File;
@@ -36,5 +37,9 @@ public class DirTool {
             }
         }
         return true;
+    }
+
+    public static String combine(String path1, String path2) {
+        return path1 + File.separator + path2;
     }
 }
