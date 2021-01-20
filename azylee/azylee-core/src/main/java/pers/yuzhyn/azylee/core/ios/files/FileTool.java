@@ -4,6 +4,8 @@ import pers.yuzhyn.azylee.core.ios.dirs.DirTool;
 import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 public class FileTool {
     public static boolean isExist(String pathName) {
@@ -51,5 +53,26 @@ public class FileTool {
             return false;
         }
         return true;
+    }
+
+    public static boolean inputStreamToFile(InputStream inputStream, String targetFilePath, boolean overwrite) {
+        try {
+            if (FileTool.isExist(targetFilePath) && overwrite == false) {
+                return true;
+            }
+            int index;
+            byte[] bytes = new byte[1024];
+            FileOutputStream downloadFile = new FileOutputStream(targetFilePath);
+            while ((index = inputStream.read(bytes)) != -1) {
+                downloadFile.write(bytes, 0, index);
+                downloadFile.flush();
+            }
+            downloadFile.close();
+            inputStream.close();
+            return true;
+        } catch (Exception ex) {
+            Alog.e(ex.getMessage());
+            return false;
+        }
     }
 }
