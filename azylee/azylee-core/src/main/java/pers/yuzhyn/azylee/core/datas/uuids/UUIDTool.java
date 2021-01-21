@@ -8,12 +8,12 @@ public class UUIDTool {
         return UUID.randomUUID();
     }
 
-    public static String get() {
+    public static String getId() {
         return UUID.randomUUID().toString();
     }
 
-    public static String getShort() {
-        String s = get();
+    public static String get() {
+        String s = getId();
         s = s.replace("-", "");
         return s;
     }

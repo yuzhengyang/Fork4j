@@ -1,5 +1,6 @@
 package pers.yuzhyn.azylee.core.datas.collections;
 
+import pers.yuzhyn.azylee.core.datas.numbers.IntTool;
 import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.util.Map;
@@ -31,6 +32,18 @@ public class MapTool {
             return Optional.ofNullable(map.getOrDefault(key, defaultValue)).orElse(defaultValue);
         }
         return defaultValue;
+    }
+
+    public static <K, T> String getString(Map<K, T> map, K key, T defaultValue) {
+        if (map.containsKey(key)) {
+            return Optional.ofNullable(map.getOrDefault(key, defaultValue)).orElse(defaultValue).toString();
+        }
+        return defaultValue.toString();
+    }
+
+    public static <K, T> int getInt(Map<K, T> map, K key, T defaultValue) {
+        String s = MapTool.getString(map, key, defaultValue);
+        return IntTool.parse(s, IntTool.parse(defaultValue.toString(), 0));
     }
 
     public static void print(Map map) {
