@@ -1,5 +1,7 @@
 package pers.yuzhyn.azylee.core.ios.files;
 
+import pers.yuzhyn.azylee.core.datas.strings.StringConst;
+import pers.yuzhyn.azylee.core.datas.strings.StringTool;
 import pers.yuzhyn.azylee.core.ios.dirs.DirTool;
 import pers.yuzhyn.azylee.core.logs.Alog;
 
@@ -73,6 +75,44 @@ public class FileTool {
         } catch (Exception ex) {
             Alog.e(ex.getMessage());
             return false;
+        }
+    }
+
+    /**
+     * 获取文件扩展名
+     *
+     * @param s
+     * @return
+     */
+    public static String getExt(String s) {
+        if (StringTool.ok(s)) {
+            String fileName = s;
+            int fileNameIndex = s.lastIndexOf(StringConst.FILE_SEPARATOR);
+            if (fileNameIndex > 0) {
+                fileName = s.substring(fileNameIndex + 1);
+            }
+            if (StringTool.ok(fileName)) {
+                int extNameIndex = fileName.lastIndexOf(".");
+                String extName = fileName.substring(extNameIndex + 1);
+                return extName;
+            }
+        }
+        return "";
+    }
+
+    public static void main(String[] args) {
+//        {
+//            String filePath = "E:\\test\\test.dxf";
+//            String fileName = filePath.substring(filePath.lastIndexOf("\\") + 1);
+//            String name = fileName.substring(0, fileName.lastIndexOf("."));
+//            Alog.i(name);
+//        }
+        {
+            Alog.i(FileTool.getExt("E:\\test\\test.dxf"));
+            Alog.i(FileTool.getExt("E:\\test\\test."));
+            Alog.i(FileTool.getExt("E:\\test\\.dxf"));
+            Alog.i(FileTool.getExt("E:\\test\\"));
+            Alog.i(FileTool.getExt("张三和挖掘机.pdf"));
         }
     }
 }

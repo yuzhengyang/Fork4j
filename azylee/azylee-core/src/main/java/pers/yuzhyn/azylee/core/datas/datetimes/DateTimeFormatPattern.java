@@ -2,6 +2,10 @@ package pers.yuzhyn.azylee.core.datas.datetimes;
 
 public enum DateTimeFormatPattern {
     /**
+     * 短年月
+     */
+    SHORT_YEAR_MONTH("yyyyMM"),
+    /**
      * 短日期：20201124
      */
     SHORT_DATE("yyyyMMdd"),
