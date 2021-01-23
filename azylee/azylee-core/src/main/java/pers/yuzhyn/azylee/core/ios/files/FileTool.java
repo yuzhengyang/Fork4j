@@ -1,13 +1,19 @@
 package pers.yuzhyn.azylee.core.ios.files;
 
+import pers.yuzhyn.azylee.core.datas.encrypts.Md5Tool;
+import pers.yuzhyn.azylee.core.datas.encrypts.Sha1Tool;
 import pers.yuzhyn.azylee.core.datas.strings.StringConst;
 import pers.yuzhyn.azylee.core.datas.strings.StringTool;
 import pers.yuzhyn.azylee.core.ios.dirs.DirTool;
 import pers.yuzhyn.azylee.core.logs.Alog;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class FileTool {
     public static boolean isExist(String pathName) {
@@ -99,6 +105,7 @@ public class FileTool {
         }
         return "";
     }
+
 
     public static void main(String[] args) {
 //        {
