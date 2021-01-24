@@ -50,10 +50,9 @@ public class FileCharCodeTool {
      * @return
      */
     public static String sha1(File file) {
-        try {
+        try (FileInputStream in = new FileInputStream(file);
+             FileChannel ch = in.getChannel()) {
             MessageDigest messagedigest = MessageDigest.getInstance("SHA-1");
-            FileInputStream in = new FileInputStream(file);
-            FileChannel ch = in.getChannel();
             MappedByteBuffer byteBuffer = ch.map(FileChannel.MapMode.READ_ONLY, 0, file.length());
             messagedigest.update(byteBuffer);
             return Sha1Tool.bufferToHex(messagedigest.digest());

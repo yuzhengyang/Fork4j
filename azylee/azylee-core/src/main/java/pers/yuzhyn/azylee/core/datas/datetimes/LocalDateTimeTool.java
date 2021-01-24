@@ -38,8 +38,13 @@ public class LocalDateTimeTool {
         return dateTime;
     }
 
+    public static LocalDateTime max(){
+        return LocalDateTimeTool.parse("9999-12-31 12:00:00");
+    }
+
     public static void main(String[] args) {
         Alog.i(parse("2020-05-01 15:1:30").toString());
         Alog.i(parse("2020-05-01").toString());
+        Alog.i(parse("9999-12-31 12:00:00").toString());
     }
 }

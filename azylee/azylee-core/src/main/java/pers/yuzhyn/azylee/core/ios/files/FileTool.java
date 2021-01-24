@@ -63,6 +63,28 @@ public class FileTool {
         return true;
     }
 
+    public static boolean copy(String source, String target) {
+        try (FileInputStream inputStream = new FileInputStream(new File(source));
+             FileOutputStream outputStream = new FileOutputStream(new File(target));
+             FileChannel inputChannel = inputStream.getChannel();
+             FileChannel outputChannel = outputStream.getChannel()) {
+
+            outputChannel.transferFrom(inputChannel, 0, inputChannel.size());
+            return true;
+        } catch (Exception ex) {
+            Alog.e(ex.getMessage());
+        }
+        return false;
+    }
+
+    public static boolean move(String source, String target) {
+        boolean copyFlag = FileTool.copy(source, target);
+        if (copyFlag) {
+            boolean deleteFlag = FileTool.delete(source);
+        }
+        return copyFlag;
+    }
+
     public static boolean inputStreamToFile(InputStream inputStream, String targetFilePath, boolean overwrite) {
         try {
             if (FileTool.isExist(targetFilePath) && overwrite == false) {
@@ -114,12 +136,22 @@ public class FileTool {
 //            String name = fileName.substring(0, fileName.lastIndexOf("."));
 //            Alog.i(name);
 //        }
-        {
-            Alog.i(FileTool.getExt("E:\\test\\test.dxf"));
-            Alog.i(FileTool.getExt("E:\\test\\test."));
-            Alog.i(FileTool.getExt("E:\\test\\.dxf"));
-            Alog.i(FileTool.getExt("E:\\test\\"));
-            Alog.i(FileTool.getExt("张三和挖掘机.pdf"));
-        }
+//        {
+//            Alog.i(FileTool.getExt("E:\\test\\test.dxf"));
+//            Alog.i(FileTool.getExt("E:\\test\\test."));
+//            Alog.i(FileTool.getExt("E:\\test\\.dxf"));
+//            Alog.i(FileTool.getExt("E:\\test\\"));
+//            Alog.i(FileTool.getExt("张三和挖掘机.pdf"));
+//        }
+//        boolean flag = move("D:/code/projects/my-github-projects/BigBird/03_SRC/bigbird/bigbird_data/sysfile/temp/0f09ef4cece5487082a73aa39adcef9d",
+//                "D:/code/projects/my-github-projects/BigBird/03_SRC/bigbird/bigbird_data/sysfile/202101/0f09ef4cece5487082a73aa39adcef9d");
+//        Alog.i("move:" + flag);
+
+//        boolean flag = move("D:\\code\\projects\\my-github-projects\\BigBird\\03_SRC\\bigbird\\bigbird_data\\sysfile\\temp\\fe7ba94875774e20bfae92070bb856e5",
+//                "D:\\code\\projects\\my-github-projects\\BigBird\\03_SRC\\bigbird\\bigbird_data\\sysfile\\202101\\fe7ba94875774e20bfae92070bb856e5");
+//        Alog.i("move:" + flag);
+
+        boolean flag = delete("D:/code/projects/my-github-projects/BigBird/03_SRC/bigbird/bigbird_data/sysfile/temp/6b2c9a84dc9b47bea3756b880210b388");
+        Alog.i("move:" + flag);
     }
 }
