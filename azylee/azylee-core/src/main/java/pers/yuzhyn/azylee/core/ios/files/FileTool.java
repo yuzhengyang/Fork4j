@@ -53,9 +53,9 @@ public class FileTool {
         if (FileTool.isExist(pathName)) {
             try {
                 File file = new File(pathName);
-                if (file.delete()) {
-                    return !FileTool.isExist(pathName);
-                }
+                file.delete();
+                file.deleteOnExit();
+                return !FileTool.isExist(pathName);
             } catch (Exception ex) {
             }
             return false;
@@ -63,6 +63,12 @@ public class FileTool {
         return true;
     }
 
+    /**
+     * 复制文件（默认覆盖目标已有文件）
+     * @param source
+     * @param target
+     * @return
+     */
     public static boolean copy(String source, String target) {
         try (FileInputStream inputStream = new FileInputStream(new File(source));
              FileOutputStream outputStream = new FileOutputStream(new File(target));
@@ -75,6 +81,22 @@ public class FileTool {
             Alog.e(ex.getMessage());
         }
         return false;
+    }
+
+    /**
+     * 复制文件（覆盖选项自选）
+     * @param source
+     * @param target
+     * @param overwrite
+     * @return
+     */
+    public static boolean copy(String source, String target, boolean overwrite) {
+        if (overwrite) {
+            return FileTool.copy(source, target);
+        } else {
+            if(FileTool.isExist(target))return true;
+            else return false;
+        }
     }
 
     public static boolean move(String source, String target) {
@@ -151,7 +173,14 @@ public class FileTool {
 //                "D:\\code\\projects\\my-github-projects\\BigBird\\03_SRC\\bigbird\\bigbird_data\\sysfile\\202101\\fe7ba94875774e20bfae92070bb856e5");
 //        Alog.i("move:" + flag);
 
-        boolean flag = delete("D:/code/projects/my-github-projects/BigBird/03_SRC/bigbird/bigbird_data/sysfile/temp/6b2c9a84dc9b47bea3756b880210b388");
-        Alog.i("move:" + flag);
+//        {
+//            boolean flag = delete("D:/code/projects/my-github-projects/BigBird/03_SRC/bigbird/bigbird_data/sysfile/temp/6b2c9a84dc9b47bea3756b880210b388");
+//            Alog.i("move:" + flag);
+//        }
+
+
+        String source = "E:\\testfile\\a.txt";
+        String target = "E:\\testfile\\b.txt";
+        Alog.i("copy:" + FileTool.copy(source, target));
     }
 }

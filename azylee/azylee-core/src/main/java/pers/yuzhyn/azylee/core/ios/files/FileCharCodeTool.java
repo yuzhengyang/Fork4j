@@ -2,16 +2,22 @@ package pers.yuzhyn.azylee.core.ios.files;
 
 import pers.yuzhyn.azylee.core.datas.encrypts.Md5Tool;
 import pers.yuzhyn.azylee.core.datas.encrypts.Sha1Tool;
+import pers.yuzhyn.azylee.core.ios.buffers.MappedByteBufferTool;
+import pers.yuzhyn.azylee.core.ios.streams.InputStreamTool;
 import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.security.AccessController;
 import java.security.MessageDigest;
+import java.security.PrivilegedAction;
+import java.util.stream.Stream;
 
 /**
  * 文件特征码工具
@@ -55,6 +61,7 @@ public class FileCharCodeTool {
             MessageDigest messagedigest = MessageDigest.getInstance("SHA-1");
             MappedByteBuffer byteBuffer = ch.map(FileChannel.MapMode.READ_ONLY, 0, file.length());
             messagedigest.update(byteBuffer);
+            MappedByteBufferTool.unmap(byteBuffer);
             return Sha1Tool.bufferToHex(messagedigest.digest());
         } catch (Exception ex) {
             Alog.e(ex.getMessage());
@@ -67,8 +74,15 @@ public class FileCharCodeTool {
     }
 
     public static void main(String[] args) {
-
-        Alog.i(FileCharCodeTool.md5("E:\\testfile\\禅与摩托车维修艺术.pdf"));
-        Alog.i(FileCharCodeTool.sha1("E:\\testfile\\禅与摩托车维修艺术.pdf"));
+//        {
+//            String source = "E:\\testfile\\禅与摩托车维修艺术.pdf";
+//            String target = "E:\\testfile\\禅与摩托车维修艺术-test.pdf";
+//            FileTool.copy(source, target);
+//            Alog.i(FileCharCodeTool.md5(target));
+//            Alog.i(FileCharCodeTool.sha1(target));
+//
+//            boolean deleteFlag = FileTool.delete(target);
+//            Alog.i("deleteFlag: " + deleteFlag);
+//        }
     }
 }
