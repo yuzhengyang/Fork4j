@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 public class FileTool {
     public static boolean isExist(String pathName) {
@@ -65,6 +66,7 @@ public class FileTool {
 
     /**
      * 复制文件（默认覆盖目标已有文件）
+     *
      * @param source
      * @param target
      * @return
@@ -85,6 +87,7 @@ public class FileTool {
 
     /**
      * 复制文件（覆盖选项自选）
+     *
      * @param source
      * @param target
      * @param overwrite
@@ -94,7 +97,7 @@ public class FileTool {
         if (overwrite) {
             return FileTool.copy(source, target);
         } else {
-            if(FileTool.isExist(target))return true;
+            if (FileTool.isExist(target)) return true;
             else return false;
         }
     }
@@ -151,7 +154,22 @@ public class FileTool {
     }
 
 
+    public static <T> T nval(T obj, T dftVal) {
+        try {
+            Optional optional = Optional.ofNullable(obj);
+            if (optional.isPresent()) return (T) optional.get();
+        } catch (Exception ex) {
+        }
+        return dftVal;
+
+    }
+
     public static void main(String[] args) {
+
+        String s = null;
+        Alog.i(nval(s, "***"));
+
+
 //        {
 //            String filePath = "E:\\test\\test.dxf";
 //            String fileName = filePath.substring(filePath.lastIndexOf("\\") + 1);
@@ -178,9 +196,15 @@ public class FileTool {
 //            Alog.i("move:" + flag);
 //        }
 
+//
+//        String source = "E:\\testfile\\a.txt";
+//        String target = "E:\\testfile\\b.txt";
+//        Alog.i("copy:" + FileTool.copy(source, target));
 
-        String source = "E:\\testfile\\a.txt";
-        String target = "E:\\testfile\\b.txt";
-        Alog.i("copy:" + FileTool.copy(source, target));
+//        try{
+//            int a = 0/0;
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
     }
 }
