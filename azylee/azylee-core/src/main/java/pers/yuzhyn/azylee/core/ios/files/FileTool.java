@@ -146,11 +146,49 @@ public class FileTool {
         return "";
     }
 
+    /**
+     * 获取文件名
+     *
+     * @param s
+     * @return
+     */
+    public static String getName(String s) {
+        if (StringTool.ok(s)) {
+            String fileName = s;
+            int fileNameIndex = s.lastIndexOf(StringConst.FILE_SEPARATOR);
+            if (fileNameIndex > -1) {
+                fileName = s.substring(fileNameIndex + 1);
+            }
+            return fileName;
+        }
+        return "";
+    }
 
+    /**
+     * 获取文件路径
+     *
+     * @param s
+     * @return
+     */
+    public static String getPath(String s) {
+        if (StringTool.ok(s)) {
+            String fileName = s;
+            int fileNameIndex = s.lastIndexOf(StringConst.FILE_SEPARATOR);
+            if (fileNameIndex > -1) {
+                fileName = s.substring(0, fileNameIndex);
+            }
+            return fileName;
+        }
+        return "";
+    }
 
 
     public static void main(String[] args) {
-
+        Alog.i(getPath("test.dxf"));
+        Alog.i(getPath("test\\test.dxf"));
+        Alog.i(getPath("\\test.dxf"));
+        Alog.i(getPath("/test/test.dxf"));
+        Alog.i(getPath("E:\\test\\test.dxf"));
 
 //        {
 //            String filePath = "E:\\test\\test.dxf";
