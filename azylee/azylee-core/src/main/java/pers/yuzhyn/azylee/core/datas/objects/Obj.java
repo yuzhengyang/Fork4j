@@ -10,12 +10,12 @@ public class Obj {
     /**
      * 空对象判断及默认值处理
      * @param obj
-     * @param dftVal
+     * @param defaultValue
      * @param <T>
      * @return
      */
-    public static <T> T op(T obj, T dftVal) {
-        return ObjectTool.optional(obj, dftVal);
+    public static <T> T op(T obj, T defaultValue) {
+        return ObjectTool.optional(obj, defaultValue);
     }
 
     public static void main(String[] args) {

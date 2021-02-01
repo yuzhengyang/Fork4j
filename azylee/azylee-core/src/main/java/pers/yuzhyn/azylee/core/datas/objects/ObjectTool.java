@@ -10,17 +10,17 @@ public class ObjectTool {
     /**
      * 空对象处理，简化代码
      * @param obj
-     * @param dftVal
+     * @param defaultValue
      * @param <T>
      * @return
      */
-    public static <T> T optional(T obj, T dftVal) {
+    public static <T> T optional(T obj, T defaultValue) {
         try {
             Optional optional = Optional.ofNullable(obj);
             if (optional.isPresent()) return (T) optional.get();
         } catch (Exception ex) {
         }
-        return dftVal;
+        return defaultValue;
 
     }
 }
