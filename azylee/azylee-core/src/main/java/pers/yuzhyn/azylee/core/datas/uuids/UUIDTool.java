@@ -18,6 +18,28 @@ public class UUIDTool {
         return s;
     }
 
+    public static String getId256() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(get());
+        stringBuilder.append(get());
+        stringBuilder.append(get());
+        stringBuilder.append(get());
+        stringBuilder.append(get());
+        stringBuilder.append(get());
+        stringBuilder.append(get());
+        stringBuilder.append(get());
+        return stringBuilder.toString();
+    }
+
+    public static String getId1024() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(getId256());
+        stringBuilder.append(getId256());
+        stringBuilder.append(getId256());
+        stringBuilder.append(getId256());
+        return stringBuilder.toString();
+    }
+
 //    public static void main(String[] args) {
 //        System.out.println(get());
 //        System.out.println(getShort());
