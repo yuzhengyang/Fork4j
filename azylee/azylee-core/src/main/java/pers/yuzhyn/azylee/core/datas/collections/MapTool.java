@@ -3,6 +3,8 @@ package pers.yuzhyn.azylee.core.datas.collections;
 import pers.yuzhyn.azylee.core.datas.numbers.IntTool;
 import pers.yuzhyn.azylee.core.logs.Alog;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -44,6 +46,26 @@ public class MapTool {
     public static <K, T> int getInt(Map<K, T> map, K key, T defaultValue) {
         String s = MapTool.getString(map, key, defaultValue);
         return IntTool.parse(s, IntTool.parse(defaultValue.toString(), 0));
+    }
+
+    /**
+     * 抽取Map列表中的key值数据列表
+     * @param mapList
+     * @param key
+     * @param <K>
+     * @param <T>
+     * @return
+     */
+    public static <K, T> List<T> extract(List<Map<K, T>> mapList, K key) {
+        List<T> result = new ArrayList<>();
+        if (ListTool.ok(mapList)) {
+            for (Map<K, T> map : mapList) {
+                if (ok(map)) {
+                    result.add(get(map, key, null));
+                }
+            }
+        }
+        return result;
     }
 
     public static void print(Map map) {

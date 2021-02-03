@@ -1,4 +1,4 @@
-package pers.yuzhyn.azylee.core.datas.uuids;
+package pers.yuzhyn.azylee.core.datas.ids;
 
 import java.util.UUID;
 
@@ -37,6 +37,14 @@ public class UUIDTool {
         stringBuilder.append(getId256());
         stringBuilder.append(getId256());
         stringBuilder.append(getId256());
+        return stringBuilder.toString();
+    }
+
+    public static String getId(int length) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            stringBuilder.append(getId1024());
+        }
         return stringBuilder.toString();
     }
 
