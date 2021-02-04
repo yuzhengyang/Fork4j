@@ -1,7 +1,10 @@
 package pers.yuzhyn.azylee.core.datas.ids;
 
-
-public class SnowflakeTool {
+/**
+ * 雪花算法ID
+ */
+public class SnowFlake {
+    Long MAX = Long.MAX_VALUE;
 
     //因为二进制里第一个 bit 为如果是 1，那么都是负数，但是我们生成的 id 都是正数，所以第一个 bit 统一都是 0。
 
@@ -12,7 +15,10 @@ public class SnowflakeTool {
     //代表一毫秒内生成的多个id的最新序号  12位 4096 -1 = 4095 个
     private long sequence;
     //设置一个时间初始值    2^41 - 1   差不多可以用69年
-    private long twepoch = 1585644268888L;
+    //69年是因为：从0（1970-01-01 08:00:00）开始到最大值（2039-09-07 23:47:35）约69年9个月
+    //这里设置初始值为(1609430400000L)：2021-01-01 00:00:00，预计能用到2090年09月
+    //临近时间生成的id长度为17位
+    private long twepoch = 1609430400000L;
     //5位的机器id
     private long workerIdBits = 5L;
     //5位的机房id
@@ -30,30 +36,32 @@ public class SnowflakeTool {
     private long sequenceMask = -1L ^ (-1L << sequenceBits);
     //记录产生时间毫秒数，判断是否是同1毫秒
     private long lastTimestamp = -1L;
-    public long getWorkerId(){
+
+    public long getWorkerId() {
         return workerId;
     }
+
     public long getDatacenterId() {
         return datacenterId;
     }
+
     public long getTimestamp() {
         return System.currentTimeMillis();
     }
 
 
-
-    public SnowflakeTool(long workerId, long datacenterId, long sequence) {
+    public SnowFlake(long workerId, long datacenterId, long sequence) {
 
         // 检查机房id和机器id是否超过31 不能小于0
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(
-                    String.format("worker Id can't be greater than %d or less than 0",maxWorkerId));
+                    String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
         }
 
         if (datacenterId > maxDatacenterId || datacenterId < 0) {
 
             throw new IllegalArgumentException(
-                    String.format("datacenter Id can't be greater than %d or less than 0",maxDatacenterId));
+                    String.format("datacenter Id can't be greater than %d or less than 0", maxDatacenterId));
         }
         this.workerId = workerId;
         this.datacenterId = datacenterId;
@@ -100,6 +108,7 @@ public class SnowflakeTool {
 
     /**
      * 当某一毫秒的时间，产生的id数 超过4095，系统会进入等待，直到下一毫秒，系统继续产生ID
+     *
      * @param lastTimestamp
      * @return
      */
@@ -112,8 +121,16 @@ public class SnowflakeTool {
         }
         return timestamp;
     }
+
     //获取当前时间戳
-    private long timeGen(){
+    private long timeGen() {
         return System.currentTimeMillis();
+    }
+
+    public static void main(String[] args) {
+        SnowFlake snowFlake = new SnowFlake(100, 100, 0);
+        for (int i = 0; i < 10; i++) {
+            System.out.println(snowFlake.nextId());
+        }
     }
 }
