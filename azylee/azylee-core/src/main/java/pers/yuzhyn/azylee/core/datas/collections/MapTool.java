@@ -1,6 +1,7 @@
 package pers.yuzhyn.azylee.core.datas.collections;
 
 import pers.yuzhyn.azylee.core.datas.numbers.IntTool;
+import pers.yuzhyn.azylee.core.datas.numbers.LongTool;
 import pers.yuzhyn.azylee.core.logs.Alog;
 
 import java.util.ArrayList;
@@ -48,8 +49,19 @@ public class MapTool {
         return IntTool.parse(s, IntTool.parse(defaultValue.toString(), 0));
     }
 
+    public static <K, T> long getLong(Map<K, T> map, K key, T defaultValue) {
+        String s = MapTool.getString(map, key, defaultValue);
+        return LongTool.parse(s, LongTool.parse(defaultValue.toString(), 0));
+    }
+
+    public static <K, T> boolean getBoolean(Map<K, T> map, K key, T defaultValue) {
+        String s = MapTool.getString(map, key, defaultValue);
+        return Boolean.valueOf(s);
+    }
+
     /**
      * 抽取Map列表中的key值数据列表
+     *
      * @param mapList
      * @param key
      * @param <K>
