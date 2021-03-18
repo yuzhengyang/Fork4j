@@ -16,7 +16,7 @@ public class IdWorkerTest {
         System.out.println(6&4596);
         SnowFlake worker = new SnowFlake(1,1,1);
         for (int i = 0; i < 22; i++) {
-            System.out.println(worker.nextId());
+            System.out.println(worker.nexts());
         }
     }
 }
