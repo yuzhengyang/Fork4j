@@ -1,5 +1,7 @@
 package pers.yuzhyn.azylee.core.datas.strings;
 
+import pers.yuzhyn.azylee.core.logs.Alog;
+
 public class StringTool {
     public static boolean ok(String s) {
         if (s != null && s.length() > 0) {
@@ -24,5 +26,11 @@ public class StringTool {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        String a = "1";
+        String b = null;
+        Alog.v("rs: " + StringTool.ok(a, b));
     }
 }

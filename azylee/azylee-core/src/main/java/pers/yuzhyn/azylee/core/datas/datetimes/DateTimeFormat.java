@@ -1,5 +1,7 @@
 package pers.yuzhyn.azylee.core.datas.datetimes;
 
+import pers.yuzhyn.azylee.core.logs.Alog;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +12,7 @@ import java.util.Date;
  *
  * @author yuzhengyang
  * @version 1.0
- *
+ * <p>
  * #date 2020年11月24日
  */
 public class DateTimeFormat {
@@ -18,7 +20,7 @@ public class DateTimeFormat {
     /**
      * 按照指定格式格式化日期时间
      *
-     * @param date 日期
+     * @param date    日期
      * @param pattern 格式
      * @return 返回
      */
@@ -46,7 +48,7 @@ public class DateTimeFormat {
      * 按照指定格式格式化日期时间
      *
      * @param dateTime 日期时间
-     * @param pattern 格式
+     * @param pattern  格式
      * @return 返回
      */
     public static String toStr(LocalDateTime dateTime, DateTimeFormatPattern pattern) {
@@ -74,5 +76,8 @@ public class DateTimeFormat {
     public static void main(String[] args) {
         System.out.println(DateTimeFormat.toStr(new Date(), DateTimeFormatPattern.NORMAL_DATETIME));
         System.out.println(DateTimeFormat.toStr(LocalDateTime.now(), DateTimeFormatPattern.NORMAL_DATETIME));
+
+        String date = null;
+        Alog.i("日期：" + date);
     }
 }
