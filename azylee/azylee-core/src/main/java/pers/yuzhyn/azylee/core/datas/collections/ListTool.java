@@ -13,20 +13,25 @@ public class ListTool {
         return (collection == null || collection.isEmpty());
     }
 
-//    public static boolean isEmpty(Collection<?>... collections) {
-//        for (Collection c : collections) {
-//            return (c == null || c.isEmpty());
-//        }
-//        return true;
-//    }
-
     public static boolean ok(Collection<?> collection) {
         return !isEmpty(collection);
     }
 
-//    public static boolean ok(Collection<?>... collection) {
-//        return !isEmpty(collection);
-//    }
+    public static boolean ok(Collection<?> collection1, Collection<?> collection2) {
+        return !isEmpty(collection1) && !isEmpty(collection2);
+    }
+
+    public static boolean ok(Collection<?> collection1, Collection<?> collection2, Collection<?> collection3) {
+        return !isEmpty(collection1) && !isEmpty(collection2) && !isEmpty(collection3);
+    }
+
+    public static boolean ok(Collection<?> collection1, Collection<?> collection2, Collection<?> collection3, Collection<?> collection4) {
+        return !isEmpty(collection1) && !isEmpty(collection2) && !isEmpty(collection3) && !isEmpty(collection4);
+    }
+
+    public static boolean ok(Collection<?> collection1, Collection<?> collection2, Collection<?> collection3, Collection<?> collection4, Collection<?> collection5) {
+        return !isEmpty(collection1) && !isEmpty(collection2) && !isEmpty(collection3) && !isEmpty(collection4) && !isEmpty(collection5);
+    }
 
     public static boolean ok(byte[] bytes) {
         return bytes != null && bytes.length > 0;
@@ -57,5 +62,7 @@ public class ListTool {
         List<String> list2 = null;
         Alog.v("list1 rs: " + ListTool.ok(list1));
         Alog.v("list2 rs: " + ListTool.ok(list2));
+
+        Alog.v("lists : " + ListTool.ok(list1, list2));
     }
 }
