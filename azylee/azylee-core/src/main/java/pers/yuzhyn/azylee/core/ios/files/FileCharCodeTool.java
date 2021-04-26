@@ -1,5 +1,6 @@
 package pers.yuzhyn.azylee.core.ios.files;
 
+import pers.yuzhyn.azylee.core.datas.encrypts.HexTool;
 import pers.yuzhyn.azylee.core.datas.encrypts.Md5Tool;
 import pers.yuzhyn.azylee.core.datas.encrypts.Sha1Tool;
 import pers.yuzhyn.azylee.core.ios.buffers.MappedByteBufferTool;
@@ -39,7 +40,7 @@ public class FileCharCodeTool {
             while ((len = stream.read(buf)) > 0) {
                 digest.update(buf, 0, len);
             }
-            return Md5Tool.toHexString(digest.digest());
+            return HexTool.toHex(digest.digest());
         } catch (Exception e) {
             return "";
         }
@@ -62,7 +63,7 @@ public class FileCharCodeTool {
             MappedByteBuffer byteBuffer = ch.map(FileChannel.MapMode.READ_ONLY, 0, file.length());
             messagedigest.update(byteBuffer);
             MappedByteBufferTool.unmap(byteBuffer);
-            return Sha1Tool.bufferToHex(messagedigest.digest());
+            return Sha1Tool.encrypt(messagedigest.digest());
         } catch (Exception ex) {
             Alog.e(ex.getMessage());
             return "";
