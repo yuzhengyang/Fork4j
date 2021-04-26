@@ -31,23 +31,6 @@ public class Md5Tool {
         return encrypt(s).toUpperCase();
     }
 
-    /**
-     * 自定义混合md5加密（适用于密码md5加密）
-     * 长度：64位
-     *
-     * @param s
-     * @return
-     */
-    public static String encryptMix(String s) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (char c : s.toCharArray()) {
-            String _m = encrypt(String.valueOf(c));
-            stringBuilder.append(_m);
-        }
-        return encrypt(stringBuilder.toString()) + encryptTwice(stringBuilder.toString());
-    }
-
-
     public static void main(String[] args) {
         Alog.i(encrypt("胡天八月即飞雪"));
 //        Alog.i(encrypt2("胡天八月即飞雪"));
@@ -57,6 +40,5 @@ public class Md5Tool {
         Alog.i(encrypt("胡天八月即飞雪胡天八月即飞雪胡天八月即飞雪胡天八月即飞雪"));
 //        Alog.i(toHexString("胡天八月即飞雪".getBytes()));
         Alog.w("----------------------------------");
-        Alog.i(encryptMix("胡天八月即飞雪"));
     }
 }
