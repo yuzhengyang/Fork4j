@@ -8,24 +8,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Md5Tool {
-
-    private static final char[] hexCode = "0123456789ABCDEF".toCharArray();
-
-    /**
-     * 将已经md5运算过的byte[]结果格式化为String
-     * @param data
-     * @return
-     */
-    public static String toHexString(byte[] data) {
-        StringBuilder r = new StringBuilder(data.length * 2);
-        for (byte b : data) {
-            r.append(hexCode[(b >> 4) & 0xF]);
-            r.append(hexCode[(b & 0xF)]);
-        }
-        return r.toString();
-    }
-
     public static String encrypt(String s) {
+        if (null == s) s = "";
+
         String md5code = "";
         byte[] secretBytes = null;
         try {
@@ -38,9 +23,40 @@ public class Md5Tool {
         return md5code;
     }
 
+    public static String encryptTwice(String s) {
+        return encrypt(encrypt(s));
+    }
+
+    public static String encryptUpper(String s) {
+        return encrypt(s).toUpperCase();
+    }
+
+    /**
+     * 自定义混合md5加密（适用于密码md5加密）
+     * 长度：64位
+     *
+     * @param s
+     * @return
+     */
+    public static String encryptMix(String s) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            String _m = encrypt(String.valueOf(c));
+            stringBuilder.append(_m);
+        }
+        return encrypt(stringBuilder.toString()) + encryptTwice(stringBuilder.toString());
+    }
+
 
     public static void main(String[] args) {
         Alog.i(encrypt("胡天八月即飞雪"));
-        Alog.i(toHexString("胡天八月即飞雪".getBytes()));
+//        Alog.i(encrypt2("胡天八月即飞雪"));
+        Alog.w("----------------------------------");
+        Alog.i(encryptTwice("胡天八月即飞雪"));
+        Alog.i(encryptUpper("胡天八月即飞雪"));
+        Alog.i(encrypt("胡天八月即飞雪胡天八月即飞雪胡天八月即飞雪胡天八月即飞雪"));
+//        Alog.i(toHexString("胡天八月即飞雪".getBytes()));
+        Alog.w("----------------------------------");
+        Alog.i(encryptMix("胡天八月即飞雪"));
     }
 }

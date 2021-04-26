@@ -3,6 +3,7 @@ package pers.yuzhyn.azylee.core.datas.encrypts;
 import pers.yuzhyn.azylee.core.datas.collections.ListTool;
 import pers.yuzhyn.azylee.core.datas.strings.StringFillTool;
 import pers.yuzhyn.azylee.core.datas.strings.StringTool;
+import pers.yuzhyn.azylee.core.logs.Alog;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
@@ -130,11 +131,14 @@ public class DesTool {
     }
 
     public static void main(String[] args) {
-        String name = "zhangwuji";
-        String key = "qkdny";
+        String name = "yuzhengyang111111111111111111111111112222222222222222222222222222";
+        String key = "yuzhengyang11111111111111111111111111112222222222222222222222222";
         String xtext = encrypt(name, key);
         String dxtext = decrypt(xtext, key);
         System.out.println("xtext " + xtext);
         System.out.println("dxtext " + dxtext);
+
+        Alog.i("-------------------------");
+        Alog.i(": " + Md5Tool.encrypt(DesTool.encrypt("yuzhengyang","yuzhengyang")));
     }
 }

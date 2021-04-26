@@ -1,5 +1,7 @@
 package pers.yuzhyn.azylee.core.datas.encrypts;
 
+import pers.yuzhyn.azylee.core.logs.Alog;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,31 +11,31 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Sha1Tool {
-    private static final char[] hexDigits = "0123456789ABCDEF".toCharArray();
 
-    /**
-     * @Description 计算二进制数据     * @return String
-     */
-    public static String bufferToHex(byte bytes[]) {
-        return bufferToHex(bytes, 0, bytes.length);
+    public static String encrypt(String s) {
+        return encrypt(s.getBytes());
     }
 
+    public static String encrypt(byte[] data) {
+        try {
+            // 获取指定摘要算法的messageDigest对象
+            // 此处的sha代表sha1
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA");
 
-    private static String bufferToHex(byte bytes[], int m, int n) {
-        StringBuffer stringbuffer = new StringBuffer(2 * n);
-        int k = m + n;
-        for (int l = m; l < k; l++) {
-            appendHexPair(bytes[l], stringbuffer);
+            // 调用digest方法，进行加密操作
+            byte[] cipherBytes = messageDigest.digest(data);
+
+            String cipherStr = HexTool.toHex(cipherBytes);
+            return cipherStr;
+        } catch (NoSuchAlgorithmException ex) {
+            return "";
         }
-        return stringbuffer.toString();
     }
 
-
-    private static void appendHexPair(byte bt, StringBuffer stringbuffer) {
-        char c0 = hexDigits[(bt & 0xf0) >> 4];
-        char c1 = hexDigits[bt & 0xf];
-        stringbuffer.append(c0);
-        stringbuffer.append(c1);
+    public static void main(String[] args) {
+        String text = "大漠孤烟直";
+        Alog.i(text);
+        Alog.i(Sha1Tool.encrypt(text));
     }
 
 }
