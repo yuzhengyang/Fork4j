@@ -38,7 +38,7 @@ public class LocalDateTimeTool {
         return dateTime;
     }
 
-    public static LocalDateTime max(){
+    public static LocalDateTime max() {
         return LocalDateTimeTool.parse("9999-12-31 12:00:00");
     }
 
@@ -46,5 +46,11 @@ public class LocalDateTimeTool {
         Alog.i(parse("2020-05-01 15:1:30").toString());
         Alog.i(parse("2020-05-01").toString());
         Alog.i(parse("9999-12-31 12:00:00").toString());
+
+        Alog.i("---------------------------------------------------");
+        LocalDateTime now = LocalDateTime.now();
+        Alog.i(DateTimeFormat.toStr(now.plusDays(10)));
+        Alog.i(DateTimeFormat.toStr(now.plusMonths(1)));
+        Alog.i(DateTimeFormat.toStr(now.plusYears(2)));
     }
 }
