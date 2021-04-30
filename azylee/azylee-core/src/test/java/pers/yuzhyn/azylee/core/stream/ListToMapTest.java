@@ -13,13 +13,19 @@ public class ListToMapTest {
 
         List<Order> orderList = new ArrayList<>();
         orderList.add(new Order("1010112233", new BigDecimal(15.5)));
-        orderList.add(new Order("1010112233", new BigDecimal(15.5)));
-        orderList.add(new Order("1010112233", new BigDecimal(15.5)));
+        orderList.add(new Order("1010112233", new BigDecimal(12.5)));
+        orderList.add(new Order("1010112233", new BigDecimal(5.5)));
 
         Map<String, BigDecimal> priceMap = new HashMap<>();
         if (null != orderList && orderList.size() > 0) {
             priceMap = orderList.stream().collect(Collectors.toMap(k -> k.getPluCode(), v -> v.getPrice()));
         }
+
+        for (Order order : orderList) {
+            priceMap.put(order.getPluCode(), order.getPrice());
+        }
+
+        int a = 0;
     }
 }
 
