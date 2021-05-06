@@ -189,6 +189,8 @@ public class FileTool {
         Alog.i(getPath("\\test.dxf"));
         Alog.i(getPath("/test/test.dxf"));
         Alog.i(getPath("E:\\test\\test.dxf"));
+        Alog.i("-----------------------------------");
+        Alog.i(getExt("E:\\test\\test.dxf"));
 
 //        {
 //            String filePath = "E:\\test\\test.dxf";

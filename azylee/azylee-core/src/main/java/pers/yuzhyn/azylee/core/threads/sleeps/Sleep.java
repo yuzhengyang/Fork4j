@@ -6,6 +6,17 @@ package pers.yuzhyn.azylee.core.threads.sleeps;
  */
 public class Sleep {
     /**
+     * 等待（毫秒）
+     * @param millis
+     */
+    public static void ms(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+        }
+    }
+
+    /**
      * 等待（秒）
      * @param second
      */

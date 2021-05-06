@@ -20,6 +20,14 @@ public class MixdeTool {
         return Md5Tool.encrypt(rs) + Md5Tool.encryptTwice(rs);
     }
 
+    /**
+     * 两组字符串混合
+     * 说明：适用于账号密码混合
+     * 长度：64位
+     * @param s1
+     * @param s2
+     * @return
+     */
     public static String md5Mix(String s1, String s2) {
         String rs1 = Md5Tool.encrypt(s1);
         String rs2 = Md5Tool.encrypt(s2);

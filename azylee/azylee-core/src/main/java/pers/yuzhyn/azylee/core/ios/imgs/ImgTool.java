@@ -1,11 +1,14 @@
 package pers.yuzhyn.azylee.core.ios.imgs;
 
+import pers.yuzhyn.azylee.core.ios.files.FileTool;
+
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
@@ -39,6 +42,7 @@ public class ImgTool {
 //        }
 //        return null;
 //    }
+
     /***
      * 图片旋转指定角度
      * @param bufferedimage 图像
@@ -59,8 +63,18 @@ public class ImgTool {
         graphics2d.setPaint(Color.WHITE);
         graphics2d.fillRect(0, 0, w, h);
         graphics2d.rotate(Math.toRadians(degree), w / 2, h / 2);
-        graphics2d.drawImage(bufferedimage, 0, 0,Color.WHITE, null);
+        graphics2d.drawImage(bufferedimage, 0, 0, Color.WHITE, null);
         graphics2d.dispose();
         return img;
+    }
+
+    public static void saveFile(BufferedImage image, String file) throws IOException {
+        ImageIO.write(image, FileTool.getExt(file), new File(file));
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedImage bufferedImage = ImageIO.read(new File("E:\\images\\0002.png"));
+        BufferedImage rImage = ImgTool.rotateImage(bufferedImage, 45);
+        saveFile(rImage, "E:\\images\\0002_0002.png");
     }
 }
