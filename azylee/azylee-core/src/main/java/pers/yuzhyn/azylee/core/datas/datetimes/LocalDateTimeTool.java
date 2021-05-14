@@ -38,8 +38,17 @@ public class LocalDateTimeTool {
         return dateTime;
     }
 
+    public static LocalDateTime parse(String s, DateTimeFormatPattern pattern) {
+        LocalDateTime dateTime = null;
+        try {
+            dateTime = LocalDateTime.parse(s, DateTimeFormatter.ofPattern(pattern.getPattern()));
+        } catch (Exception ex) {
+        }
+        return dateTime;
+    }
+
     public static LocalDateTime max() {
-        return LocalDateTimeTool.parse("9999-12-31 12:00:00");
+        return LocalDateTimeTool.parse("9999-12-31 23:59:59");
     }
 
     public static void main(String[] args) {

@@ -36,6 +36,17 @@ public class DateTool {
         return null;
     }
 
+    public static Date parse(String s, DateTimeFormatPattern pattern) {
+        if (StringTool.ok(s)) {
+            SimpleDateFormat sdf = new SimpleDateFormat(pattern.getPattern());
+            try {
+                return sdf.parse(s);
+            } catch (Exception ex) {
+            }
+        }
+        return null;
+    }
+
     public static Date parse(int year, int month, int day) {
         return DateTool.parse(year + "-" + month + "-" + day);
     }

@@ -3,7 +3,9 @@ package pers.yuzhyn.azylee.core.logs;
 import pers.yuzhyn.azylee.core.datas.collections.ListTool;
 import pers.yuzhyn.azylee.core.datas.objects.ObjectTool;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Alog {
     private static final String ARROW_SIGN = ">";
@@ -50,5 +52,15 @@ public class Alog {
 
     public static void e(String s) {
         System.out.format("\33[31;2m%s%n", s);
+    }
+
+    public static void main(String[] args) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("name","张三");
+        map.put("sex", 1);
+        map.put("sign", '6');
+        map.put("age",15);
+        Alog.i(map);
+        System.out.println(map.toString());
     }
 }
