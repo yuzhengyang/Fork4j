@@ -66,6 +66,7 @@ public class WebSdk {
         public static final String AppData = DirTool.combine(App, WebSdkDataFolder);
         public static final String Properties = DirTool.combine(AppData, "properties");
         public static final String Database = DirTool.combine(AppData, "database");
+        public static final String Temp = DirTool.combine(AppData, "temp");
         public static final String TempDir = DirTool.combine(AppData, "tempdir");
         public static final String SysFile = DirTool.combine(AppData, "sysfile");
         public static final String SysFileTemp = DirTool.combine(SysFile, "temp");

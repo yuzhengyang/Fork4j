@@ -29,6 +29,7 @@ public class WebSdkStarter {
         System.out.println("** 创建文件夹 **");
         DirTool.create(WebSdk.Paths.Database);
         DirTool.create(WebSdk.Paths.TempDir);
+        DirTool.create(WebSdk.Paths.Temp);
         DirTool.create(WebSdk.Paths.SysFile);
         DirTool.create(WebSdk.Paths.SysFileTemp);
 //        log.info("** 设置临时文件目录（不建议使用，会造成大量垃圾文件） **");
