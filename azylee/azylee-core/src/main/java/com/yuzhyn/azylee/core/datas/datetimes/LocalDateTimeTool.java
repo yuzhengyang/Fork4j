@@ -1,5 +1,6 @@
 package com.yuzhyn.azylee.core.datas.datetimes;
 
+import com.yuzhyn.azylee.core.datas.strings.StringTool;
 import com.yuzhyn.azylee.core.logs.Alog;
 
 import java.time.Instant;
@@ -20,20 +21,24 @@ public class LocalDateTimeTool {
 
     public static LocalDateTime parse(String s) {
         LocalDateTime date = null;
-        for (String pattern : DateTimeFormatPattern.getDateTimePattern()) {
-            date = LocalDateTimeTool.parse(s, pattern);
-            if (date == null && s.length() < 12) date = LocalDateTimeTool.parse(s + " 00:00:00", pattern);
-            if (date != null) break;
+        if (StringTool.ok(s)) {
+            for (String pattern : DateTimeFormatPattern.getDateTimePattern()) {
+                date = LocalDateTimeTool.parse(s, pattern);
+                if (date == null && s.length() < 12) date = LocalDateTimeTool.parse(s + " 00:00:00", pattern);
+                if (date != null) break;
+            }
         }
         return date;
     }
 
     public static LocalDateTime parse(String s, String format) {
         LocalDateTime dateTime = null;
-        try {
-            dateTime = LocalDateTime.parse(s, DateTimeFormatter.ofPattern(format));
-        } catch (Exception ex) {
-            Alog.e(ex.getMessage());
+        if (StringTool.ok(s)) {
+            try {
+                dateTime = LocalDateTime.parse(s, DateTimeFormatter.ofPattern(format));
+            } catch (Exception ex) {
+                Alog.e(ex.getMessage());
+            }
         }
         return dateTime;
     }
@@ -75,6 +80,6 @@ public class LocalDateTimeTool {
 
 
         Alog.i("---------------------------------------------------");
-        System.out.println(LocalDateTimeTool.isSameDay(parse("2020-05-01 15:1:30"),parse("2020-05-02 15:1:30")));
+        System.out.println(LocalDateTimeTool.isSameDay(parse("2020-05-01 15:1:30"), parse("2020-05-02 15:1:30")));
     }
 }

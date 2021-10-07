@@ -1,9 +1,11 @@
 package com.yuzhyn.azylee.core.datas.collections;
 
+import com.yuzhyn.azylee.core.datas.datetimes.LocalDateTimeTool;
 import com.yuzhyn.azylee.core.datas.numbers.IntTool;
 import com.yuzhyn.azylee.core.datas.numbers.LongTool;
 import com.yuzhyn.azylee.core.logs.Alog;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +13,11 @@ import java.util.Optional;
 
 public class MapTool {
 
+    /**
+     * 判断 Map 存在至少一个元素
+     * @param map
+     * @return
+     */
     public static boolean ok(Map map) {
         if (map != null && map.size() > 0) {
             return true;
@@ -18,6 +25,12 @@ public class MapTool {
         return false;
     }
 
+    /**
+     * 判断 Map 中存在指定 Keys，且指定的 Keys 值不为 Null
+     * @param map
+     * @param keys
+     * @return
+     */
     public static boolean ok(Map map, String... keys) {
         if (MapTool.ok(map)) {
             for (String key : keys) {
@@ -57,6 +70,13 @@ public class MapTool {
     public static <K, T> boolean getBoolean(Map<K, T> map, K key, T defaultValue) {
         String s = MapTool.getString(map, key, defaultValue);
         return Boolean.valueOf(s);
+    }
+
+    public static <K, T> LocalDateTime getLocalDateTime(Map<K, T> map, K key, T defaultValue) {
+        String s = MapTool.getString(map, key, null);
+        LocalDateTime time = LocalDateTimeTool.parse(s);
+        if (time != null) return time;
+        return null;
     }
 
     /**

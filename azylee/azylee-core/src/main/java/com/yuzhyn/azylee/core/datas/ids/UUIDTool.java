@@ -18,6 +18,13 @@ public class UUIDTool {
         return s;
     }
 
+    public static String getId64() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(get());
+        stringBuilder.append(get());
+        return stringBuilder.toString();
+    }
+
     public static String getId256() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(get());
