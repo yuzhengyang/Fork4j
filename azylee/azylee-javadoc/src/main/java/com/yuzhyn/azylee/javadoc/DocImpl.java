@@ -47,15 +47,15 @@ import com.sun.tools.javac.util.Position;
  * comments and have been processed by this run of javadoc.  All Doc items
  * are unique, that is, they are == comparable.
  *
- *  <p><b>This is NOT part of any supported API.
- *  If you write code that depends on this, you do so at your own risk.
- *  This code and its internal interfaces are subject to change or
- *  deletion without notice.</b>
+ * <p><b>This is NOT part of any supported API.
+ * If you write code that depends on this, you do so at your own risk.
+ * This code and its internal interfaces are subject to change or
+ * deletion without notice.</b>
  *
- * @since 1.2
  * @author Robert Field
  * @author Atul M Dambalkar
  * @author Neal Gafter (rewrite)
+ * @since 1.2
  */
 public abstract class DocImpl implements Doc, Comparable<Object> {
 
@@ -71,7 +71,7 @@ public abstract class DocImpl implements Doc, Comparable<Object> {
     protected TreePath treePath;
 
     /**
-     *  The complex comment object, lazily initialized.
+     * The complex comment object, lazily initialized.
      */
     private Comment comment;
 
@@ -81,7 +81,7 @@ public abstract class DocImpl implements Doc, Comparable<Object> {
     private CollationKey collationkey = null;
 
     /**
-     *  Raw documentation string.
+     * Raw documentation string.
      */
     protected String documentation;  // Accessed in PackageDocImpl, RootDocImpl
 
@@ -217,9 +217,9 @@ public abstract class DocImpl implements Doc, Comparable<Object> {
             input.close();
         }
         String encoding = env.getEncoding();
-        String rawDoc = (encoding!=null)
-            ? new String(filecontents, encoding)
-            : new String(filecontents);
+        String rawDoc = (encoding != null)
+                ? new String(filecontents, encoding)
+                : new String(filecontents);
         Pattern bodyPat = Pattern.compile("(?is).*<body\\b[^>]*>(.*)</body\\b.*");
         Matcher m = bodyPat.matcher(rawDoc);
         if (m.matches()) {
@@ -294,14 +294,14 @@ public abstract class DocImpl implements Doc, Comparable<Object> {
     /**
      * Returns the name of this Doc item.
      *
-     * @return  the name
+     * @return the name
      */
     public abstract String name();
 
     /**
      * Returns the qualified name of this Doc item.
      *
-     * @return  the name
+     * @return the name
      */
     public abstract String qualifiedName();
 
@@ -312,15 +312,15 @@ public abstract class DocImpl implements Doc, Comparable<Object> {
      * <p>
      * Included so that Doc item are java.lang.Comparable.
      *
-     * @param   obj the {@code Object} to be compared.
-     * @return  a negative integer, zero, or a positive integer as this Object
-     *          is less than, equal to, or greater than the given Object.
-     * @exception ClassCastException the specified Object's type prevents it
-     *            from being compared to this Object.
+     * @param obj the {@code Object} to be compared.
+     * @return a negative integer, zero, or a positive integer as this Object
+     * is less than, equal to, or greater than the given Object.
+     * @throws ClassCastException the specified Object's type prevents it
+     *                            from being compared to this Object.
      */
     public int compareTo(Object obj) {
         // System.out.println("COMPARE \"" + this + "\" to \"" + obj + "\" = " + key().compareTo(((DocImpl)obj).key()));
-        return key().compareTo(((DocImpl)obj).key());
+        return key().compareTo(((DocImpl) obj).key());
     }
 
     /**
@@ -449,5 +449,7 @@ public abstract class DocImpl implements Doc, Comparable<Object> {
      * Return the source position of the entity, or null if
      * no position is available.
      */
-    public SourcePosition position() { return null; }
+    public SourcePosition position() {
+        return null;
+    }
 }

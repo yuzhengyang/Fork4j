@@ -31,10 +31,10 @@ import java.io.PrintWriter;
  * Provides external entry points (tool and programmatic)
  * for the javadoc program.
  *
- *  <p><b>This is NOT part of any supported API.
- *  If you write code that depends on this, you do so at your own risk.
- *  This code and its internal interfaces are subject to change or
- *  deletion without notice.</b>
+ * <p><b>This is NOT part of any supported API.
+ * If you write code that depends on this, you do so at your own risk.
+ * This code and its internal interfaces are subject to change or
+ * deletion without notice.</b>
  *
  * @since 1.4
  */
@@ -48,7 +48,8 @@ public class Main {
 
     /**
      * Command line interface.
-     * @param args   The command line parameters.
+     *
+     * @param args The command line parameters.
      */
     public static void main(String... args) {
         System.exit(execute(args));
@@ -56,27 +57,36 @@ public class Main {
 
     /**
      * Programmatic interface.
-     * @param args   The command line parameters.
+     *
+     * @param args The command line parameters.
      * @return The return code.
      */
     public static int execute(String... args) {
-        String s = "-private -splitindex -use -author -version -tag ProjectDetails:a:项目详情: -tag update:a:项目更改: -tag CreateDate:a:创建时间: " +
-                "-encoding UTF-8 -charset UTF-8 " +
-                "-d D:\\tmp\\hicmp-utils-doc2 " +
-                "@D:\\tmp\\aaa";
+            String s1 = "-private -splitindex -use -author -version -tag ProjectDetails:a:项目详情: -tag update:a:项目更改: -tag CreateDate:a:创建时间: " +
+                    "-encoding UTF-8 -charset UTF-8 " +
+                    "-d D:\\tmp\\hicmp-utils-doc2 " +
+                    "@D:\\tmp\\aaa";
 
-        Start jdoc = new Start();
-        return jdoc.begin(s.split(" "));
+
+            String s2 = "-private -splitindex -use -author -version -encoding UTF-8 " +
+                    "-d D:\\tmp\\javadoc-test\\hidoc-javadoc-2 " +
+                    "@D:\\tmp\\javadoc-test\\javadoc_args.txt";
+
+            Start jdoc = new Start();
+            return jdoc.begin(s2.split(" "));
+
+
 //        return jdoc.begin(args);
     }
 
     /**
      * Programmatic interface.
-     * @param args   The command line parameters.
+     *
+     * @param args                    The command line parameters.
      * @param docletParentClassLoader The parent class loader used when
-     *  creating the doclet classloader. If null, the class loader used
-     *  to instantiate doclets will be created without specifying a parent
-     *  class loader.
+     *                                creating the doclet classloader. If null, the class loader used
+     *                                to instantiate doclets will be created without specifying a parent
+     *                                class loader.
      * @return The return code.
      * @since 1.7
      */
@@ -87,8 +97,9 @@ public class Main {
 
     /**
      * Programmatic interface.
-     * @param programName  Name of the program (for error messages).
-     * @param args   The command line parameters.
+     *
+     * @param programName Name of the program (for error messages).
+     * @param args        The command line parameters.
      * @return The return code.
      */
     public static int execute(String programName, String... args) {
@@ -98,12 +109,13 @@ public class Main {
 
     /**
      * Programmatic interface.
-     * @param programName  Name of the program (for error messages).
-     * @param args   The command line parameters.
+     *
+     * @param programName             Name of the program (for error messages).
+     * @param args                    The command line parameters.
      * @param docletParentClassLoader The parent class loader used when
-     *  creating the doclet classloader. If null, the class loader used
-     *  to instantiate doclets will be created without specifying a parent
-     *  class loader.
+     *                                creating the doclet classloader. If null, the class loader used
+     *                                to instantiate doclets will be created without specifying a parent
+     *                                class loader.
      * @return The return code.
      * @since 1.7
      */
@@ -114,9 +126,10 @@ public class Main {
 
     /**
      * Programmatic interface.
-     * @param programName  Name of the program (for error messages).
-     * @param defaultDocletClassName  Fully qualified class name.
-     * @param args   The command line parameters.
+     *
+     * @param programName            Name of the program (for error messages).
+     * @param defaultDocletClassName Fully qualified class name.
+     * @param args                   The command line parameters.
      * @return The return code.
      */
     public static int execute(String programName,
@@ -128,13 +141,14 @@ public class Main {
 
     /**
      * Programmatic interface.
-     * @param programName  Name of the program (for error messages).
+     *
+     * @param programName             Name of the program (for error messages).
      * @param defaultDocletClassName  Fully qualified class name.
      * @param docletParentClassLoader The parent class loader used when
-     *  creating the doclet classloader. If null, the class loader used
-     *  to instantiate doclets will be created without specifying a parent
-     *  class loader.
-     * @param args   The command line parameters.
+     *                                creating the doclet classloader. If null, the class loader used
+     *                                to instantiate doclets will be created without specifying a parent
+     *                                class loader.
+     * @param args                    The command line parameters.
      * @return The return code.
      * @since 1.7
      */
@@ -148,12 +162,13 @@ public class Main {
 
     /**
      * Programmatic interface.
-     * @param programName  Name of the program (for error messages).
-     * @param errWriter    PrintWriter to receive error messages.
-     * @param warnWriter    PrintWriter to receive error messages.
-     * @param noticeWriter    PrintWriter to receive error messages.
-     * @param defaultDocletClassName  Fully qualified class name.
-     * @param args   The command line parameters.
+     *
+     * @param programName            Name of the program (for error messages).
+     * @param errWriter              PrintWriter to receive error messages.
+     * @param warnWriter             PrintWriter to receive error messages.
+     * @param noticeWriter           PrintWriter to receive error messages.
+     * @param defaultDocletClassName Fully qualified class name.
+     * @param args                   The command line parameters.
      * @return The return code.
      */
     public static int execute(String programName,
@@ -163,23 +178,24 @@ public class Main {
                               String defaultDocletClassName,
                               String... args) {
         Start jdoc = new Start(programName,
-                               errWriter, warnWriter, noticeWriter,
-                               defaultDocletClassName);
+                errWriter, warnWriter, noticeWriter,
+                defaultDocletClassName);
         return jdoc.begin(args);
     }
 
     /**
      * Programmatic interface.
-     * @param programName  Name of the program (for error messages).
-     * @param errWriter    PrintWriter to receive error messages.
-     * @param warnWriter    PrintWriter to receive error messages.
-     * @param noticeWriter    PrintWriter to receive error messages.
+     *
+     * @param programName             Name of the program (for error messages).
+     * @param errWriter               PrintWriter to receive error messages.
+     * @param warnWriter              PrintWriter to receive error messages.
+     * @param noticeWriter            PrintWriter to receive error messages.
      * @param defaultDocletClassName  Fully qualified class name.
      * @param docletParentClassLoader The parent class loader used when
-     *  creating the doclet classloader. If null, the class loader used
-     *  to instantiate doclets will be created without specifying a parent
-     *  class loader.
-     * @param args   The command line parameters.
+     *                                creating the doclet classloader. If null, the class loader used
+     *                                to instantiate doclets will be created without specifying a parent
+     *                                class loader.
+     * @param args                    The command line parameters.
      * @return The return code.
      * @since 1.7
      */
@@ -191,9 +207,9 @@ public class Main {
                               ClassLoader docletParentClassLoader,
                               String... args) {
         Start jdoc = new Start(programName,
-                               errWriter, warnWriter, noticeWriter,
-                               defaultDocletClassName,
-                               docletParentClassLoader);
+                errWriter, warnWriter, noticeWriter,
+                defaultDocletClassName,
+                docletParentClassLoader);
         return jdoc.begin(args);
     }
 }

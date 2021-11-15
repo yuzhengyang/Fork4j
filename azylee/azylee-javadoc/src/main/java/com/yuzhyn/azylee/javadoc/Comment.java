@@ -27,18 +27,19 @@ package com.yuzhyn.azylee.javadoc;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import com.sun.javadoc.*;
 import com.sun.tools.javac.util.ListBuffer;
 
 /**
  * Comment contains all information in comment part.
- *      It allows users to get first sentence of this comment, get
- *      comment for different tags...
+ * It allows users to get first sentence of this comment, get
+ * comment for different tags...
  *
- *  <p><b>This is NOT part of any supported API.
- *  If you write code that depends on this, you do so at your own risk.
- *  This code and its internal interfaces are subject to change or
- *  deletion without notice.</b>
+ * <p><b>This is NOT part of any supported API.
+ * If you write code that depends on this, you do so at your own risk.
+ * This code and its internal interfaces are subject to change or
+ * deletion without notice.</b>
  *
  * @author Kaiyang Liu (original)
  * @author Robert Field (rewrite)
@@ -66,6 +67,9 @@ class Comment {
      * constructor of Comment.
      */
     Comment(final DocImpl holder, final String commentString) {
+        if (commentString != null && commentString.length() > 0) {
+            int a = 1;
+        }
         this.docenv = holder.env;
 
         /**
@@ -97,7 +101,7 @@ class Comment {
                 for (int inx = 0; inx < len; ++inx) {
                     char ch = commentString.charAt(inx);
                     boolean isWhite = Character.isWhitespace(ch);
-                    switch (state)  {
+                    switch (state) {
                         case TAG_NAME:
                             if (isWhite) {
                                 tagName = commentString.substring(tagStart, inx);
@@ -114,7 +118,7 @@ class Comment {
                         case IN_TEXT:
                             if (newLine && ch == '@') {
                                 parseCommentComponent(tagName, textStart,
-                                                      lastNonWhite+1);
+                                        lastNonWhite + 1);
                                 tagStart = inx;
                                 state = TAG_NAME;
                             }
@@ -128,7 +132,7 @@ class Comment {
                     }
                 }
                 // Finish what's currently being processed
-                switch (state)  {
+                switch (state) {
                     case TAG_NAME:
                         tagName = commentString.substring(tagStart, len);
                         /* fall thru */
@@ -136,7 +140,7 @@ class Comment {
                         textStart = len;
                         /* fall thru */
                     case IN_TEXT:
-                        parseCommentComponent(tagName, textStart, lastNonWhite+1);
+                        parseCommentComponent(tagName, textStart, lastNonWhite + 1);
                         break;
                 }
             }
@@ -228,7 +232,7 @@ class Comment {
         ListBuffer<ThrowsTag> found = new ListBuffer<ThrowsTag>();
         for (Tag next : tagList) {
             if (next instanceof ThrowsTag) {
-                found.append((ThrowsTag)next);
+                found.append((ThrowsTag) next);
             }
         }
         return found.toArray(new ThrowsTag[found.length()]);
@@ -257,7 +261,7 @@ class Comment {
         ListBuffer<ParamTag> found = new ListBuffer<ParamTag>();
         for (Tag next : tagList) {
             if (next instanceof ParamTag) {
-                ParamTag p = (ParamTag)next;
+                ParamTag p = (ParamTag) next;
                 if (typeParams == p.isTypeParameter()) {
                     found.append(p);
                 }
@@ -273,7 +277,7 @@ class Comment {
         ListBuffer<SeeTag> found = new ListBuffer<SeeTag>();
         for (Tag next : tagList) {
             if (next instanceof SeeTag) {
-                found.append((SeeTag)next);
+                found.append((SeeTag) next);
             }
         }
         return found.toArray(new SeeTag[found.length()]);
@@ -286,7 +290,7 @@ class Comment {
         ListBuffer<SerialFieldTag> found = new ListBuffer<SerialFieldTag>();
         for (Tag next : tagList) {
             if (next instanceof SerialFieldTag) {
-                found.append((SerialFieldTag)next);
+                found.append((SerialFieldTag) next);
             }
         }
         return found.toArray(new SerialFieldTag[found.length()]);
@@ -307,9 +311,9 @@ class Comment {
         while (true) {
             int linkstart;
             if ((linkstart = inlineTagFound(holder, inlinetext,
-                                            textstart)) == -1) {
+                    textstart)) == -1) {
                 taglist.append(new TagImpl(holder, "Text",
-                                           inlinetext.substring(textstart)));
+                        inlinetext.substring(textstart)));
                 break;
             } else {
                 inPre = scanForPre(inlinetext, textstart, linkstart, inPre);
@@ -317,22 +321,22 @@ class Comment {
                 for (int i = linkstart; i < inlinetext.length(); i++) {
                     char c = inlinetext.charAt(i);
                     if (Character.isWhitespace(c) ||
-                        c == '}') {
+                            c == '}') {
                         seetextstart = i;
                         break;
-                     }
+                    }
                 }
-                String linkName = inlinetext.substring(linkstart+2, seetextstart);
+                String linkName = inlinetext.substring(linkstart + 2, seetextstart);
                 if (!(inPre && (linkName.equals("code") || linkName.equals("literal")))) {
                     //Move past the white space after the inline tag name.
                     while (Character.isWhitespace(inlinetext.
-                                                      charAt(seetextstart))) {
+                            charAt(seetextstart))) {
                         if (inlinetext.length() <= seetextstart) {
                             taglist.append(new TagImpl(holder, "Text",
-                                                       inlinetext.substring(textstart, seetextstart)));
+                                    inlinetext.substring(textstart, seetextstart)));
                             docenv.warning(holder,
-                                           "tag.Improper_Use_Of_Link_Tag",
-                                           inlinetext);
+                                    "tag.Improper_Use_Of_Link_Tag",
+                                    inlinetext);
                             return taglist.toArray(new Tag[taglist.length()]);
                         } else {
                             seetextstart++;
@@ -340,27 +344,27 @@ class Comment {
                     }
                 }
                 taglist.append(new TagImpl(holder, "Text",
-                                           inlinetext.substring(textstart, linkstart)));
+                        inlinetext.substring(textstart, linkstart)));
                 textstart = seetextstart;   // this text is actually seetag
                 if ((delimend = findInlineTagDelim(inlinetext, textstart)) == -1) {
                     //Missing closing '}' character.
                     // store the text as it is with the {@link.
                     taglist.append(new TagImpl(holder, "Text",
-                                               inlinetext.substring(textstart)));
+                            inlinetext.substring(textstart)));
                     docenv.warning(holder,
-                                   "tag.End_delimiter_missing_for_possible_SeeTag",
-                                   inlinetext);
+                            "tag.End_delimiter_missing_for_possible_SeeTag",
+                            inlinetext);
                     return taglist.toArray(new Tag[taglist.length()]);
                 } else {
                     //Found closing '}' character.
                     if (linkName.equals("see")
-                           || linkName.equals("link")
-                           || linkName.equals("linkplain")) {
-                        taglist.append( new SeeTagImpl(holder, "@" + linkName,
-                              inlinetext.substring(textstart, delimend)));
+                            || linkName.equals("link")
+                            || linkName.equals("linkplain")) {
+                        taglist.append(new SeeTagImpl(holder, "@" + linkName,
+                                inlinetext.substring(textstart, delimend)));
                     } else {
-                        taglist.append( new TagImpl(holder, "@" + linkName,
-                              inlinetext.substring(textstart, delimend)));
+                        taglist.append(new TagImpl(holder, "@" + linkName,
+                                inlinetext.substring(textstart, delimend)));
                     }
                     textstart = delimend + 1;
                 }
@@ -372,7 +376,9 @@ class Comment {
         return taglist.toArray(new Tag[taglist.length()]);
     }
 
-    /** regex for case-insensitive match for {@literal <pre> } and  {@literal </pre> }. */
+    /**
+     * regex for case-insensitive match for {@literal <pre> } and  {@literal </pre> }.
+     */
     private static final Pattern prePat = Pattern.compile("(?i)<(/?)pre>");
 
     private static boolean scanForPre(String inlinetext, int start, int end, boolean inPre) {
@@ -386,7 +392,8 @@ class Comment {
     /**
      * Recursively find the index of the closing '}' character for an inline tag
      * and return it.  If it can't be found, return -1.
-     * @param inlineText the text to search in.
+     *
+     * @param inlineText  the text to search in.
      * @param searchStart the index of the place to start searching at.
      * @return the index of the closing '}' character for an inline tag.
      * If it can't be found, return -1.
@@ -396,12 +403,12 @@ class Comment {
         if ((delimEnd = inlineText.indexOf("}", searchStart)) == -1) {
             return -1;
         } else if (((nestedOpenBrace = inlineText.indexOf("{", searchStart)) != -1) &&
-            nestedOpenBrace < delimEnd){
+                nestedOpenBrace < delimEnd) {
             //Found a nested open brace.
             int nestedCloseBrace = findInlineTagDelim(inlineText, nestedOpenBrace + 1);
             return (nestedCloseBrace != -1) ?
-                findInlineTagDelim(inlineText, nestedCloseBrace + 1) :
-                -1;
+                    findInlineTagDelim(inlineText, nestedCloseBrace + 1) :
+                    -1;
         } else {
             return delimEnd;
         }
@@ -411,9 +418,9 @@ class Comment {
      * Recursively search for the characters '{', '@', followed by
      * name of inline tag and white space,
      * if found
-     *    return the index of the text following the white space.
+     * return the index of the text following the white space.
      * else
-     *    return -1.
+     * return -1.
      */
     private static int inlineTagFound(DocImpl holder, String inlinetext, int start) {
         DocEnv docenv = holder.env;
@@ -437,7 +444,7 @@ class Comment {
     static Tag[] firstSentenceTags(DocImpl holder, String text) {
         DocLocale doclocale = holder.env.doclocale;
         return getInlineTags(holder,
-                             doclocale.localeSpecificFirstSentence(holder, text));
+                doclocale.localeSpecificFirstSentence(holder, text));
     }
 
     /**
