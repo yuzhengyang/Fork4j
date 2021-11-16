@@ -68,12 +68,12 @@ public class Main {
                     "@D:\\tmp\\aaa";
 
 
-            String s2 = "-private -splitindex -use -author -version -encoding UTF-8 " +
-                    "-d D:\\tmp\\javadoc-test\\hidoc-javadoc-2 " +
-                    "@D:\\tmp\\javadoc-test\\javadoc_args.txt";
+//            String s2 = "-private -splitindex -use -author -version -encoding UTF-8 " +
+//                    "-d D:\\tmp\\javadoc-test\\hidoc-javadoc-2 " +
+//                    "@D:\\tmp\\javadoc-test\\javadoc_args.txt";
 
             Start jdoc = new Start();
-            return jdoc.begin(s2.split(" "));
+            return jdoc.begin(s1.split(" "));
 
 
 //        return jdoc.begin(args);

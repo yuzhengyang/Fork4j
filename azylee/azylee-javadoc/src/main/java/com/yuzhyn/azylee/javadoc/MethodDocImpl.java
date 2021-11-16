@@ -71,6 +71,7 @@ public class MethodDocImpl
      *
      * @return true
      */
+    @Override
     public boolean isMethod() {
         return true;
     }
@@ -78,6 +79,7 @@ public class MethodDocImpl
     /**
      * Return true if this method is default
      */
+    @Override
     public boolean isDefault() {
         return (sym.flags() & Flags.DEFAULT) != 0;
     }
@@ -85,6 +87,7 @@ public class MethodDocImpl
     /**
      * Return true if this method is abstract
      */
+    @Override
     public boolean isAbstract() {
         return (Modifier.isAbstract(getModifiers()) && !isDefault());
     }
@@ -95,6 +98,7 @@ public class MethodDocImpl
      * @return the return type of this method, null if it
      * is a constructor.
      */
+    @Override
     public com.sun.javadoc.Type returnType() {
         return TypeMaker.getType(env, sym.type.getReturnType(), false);
     }
@@ -108,6 +112,7 @@ public class MethodDocImpl
      * originally defined this method, null if this method does
      * not override a definition in a superclass.
      */
+    @Override
     public ClassDoc overriddenClass() {
         com.sun.javadoc.Type t = overriddenType();
         return (t != null) ? t.asClassDoc() : null;
@@ -117,6 +122,7 @@ public class MethodDocImpl
      * Return the type containing the method that this method overrides.
      * It may be a <code>ClassDoc</code> or a <code>ParameterizedType</code>.
      */
+    @Override
     public com.sun.javadoc.Type overriddenType() {
 
         if ((sym.flags() & Flags.STATIC) != 0) {
@@ -144,6 +150,7 @@ public class MethodDocImpl
      * in a superclass this method overrides, null if
      * this method does not override.
      */
+    @Override
     public MethodDoc overriddenMethod() {
 
         // Real overriding only.  Static members are simply hidden.
@@ -193,6 +200,7 @@ public class MethodDocImpl
      * @param meth  the other method to examine
      * @return <tt>true</tt> if this method overrides the other
      */
+    @Override
     public boolean overrides(MethodDoc meth) {
         MethodSymbol overridee = ((MethodDocImpl) meth).sym;
         ClassSymbol origin = (ClassSymbol) sym.owner;
@@ -215,6 +223,7 @@ public class MethodDocImpl
     }
 
 
+    @Override
     public String name() {
         if (name == null) {
             name = sym.name.toString();
@@ -224,6 +233,7 @@ public class MethodDocImpl
 
     private String name;
 
+    @Override
     public String qualifiedName() {
         if (qualifiedName == null) {
             qualifiedName =  sym.enclClass().getQualifiedName() + "." + sym.name;
@@ -239,6 +249,7 @@ public class MethodDocImpl
      * parameters.  Type parameters follow the class name, as they do
      * in the syntax for invoking methods with explicit type parameters.
      */
+    @Override
     public String toString() {
         return sym.enclClass().getQualifiedName() +
                 "." + typeParametersString() + name() + signature();

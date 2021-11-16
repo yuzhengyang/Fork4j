@@ -358,7 +358,7 @@ public class Start extends ToolOption.Helper {
                 languageVersion == null || languageVersion == LanguageVersion.JAVA_1_1,
                 quiet);
 
-        // release resources21
+        // release resources
         comp = null;
 
         // pass off control to the doclet

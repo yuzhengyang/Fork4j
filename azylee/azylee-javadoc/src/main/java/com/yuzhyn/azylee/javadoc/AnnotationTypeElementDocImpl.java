@@ -66,6 +66,7 @@ public class AnnotationTypeElementDocImpl
      * consider it one for this purpose.
      * (For legacy doclets, return true.)
      */
+    @Override
     public boolean isMethod() {
         return env.legacyDoclet;
     }
@@ -74,6 +75,7 @@ public class AnnotationTypeElementDocImpl
      * Returns false, even though this is indeed abstract.  See
      * MethodDocImpl.isAbstract() for the (il)logic behind this.
      */
+    @Override
     public boolean isAbstract() {
         return false;
     }
