@@ -145,6 +145,18 @@ public class FileTool {
         return "";
     }
 
+    public static String getNameWithoutExt(String s) {
+        if (StringTool.ok(s)) {
+            String fileName = getName(s);
+            if (StringTool.ok(fileName)) {
+                int nameIndex = fileName.lastIndexOf(".");
+                String name = fileName.substring(0, nameIndex);
+                return name;
+            }
+        }
+        return "";
+    }
+
     /**
      * 获取文件名
      *
@@ -185,11 +197,13 @@ public class FileTool {
     public static void main(String[] args) {
         Alog.i(getPath("test.dxf"));
         Alog.i(getPath("test\\test.dxf"));
-        Alog.i(getPath("\\test.dxf"));
-        Alog.i(getPath("/test/test.dxf"));
-        Alog.i(getPath("E:\\test\\test.dxf"));
+        Alog.i(getExt("\\test.dxf"));
+        Alog.i(getNameWithoutExt("/test/test.dxf"));
+        Alog.i(getNameWithoutExt("E:\\test\\test.dxf"));
         Alog.i("-----------------------------------");
         Alog.i(getExt("E:\\test\\test.dxf"));
+
+
 
 //        {
 //            String filePath = "E:\\test\\test.dxf";
