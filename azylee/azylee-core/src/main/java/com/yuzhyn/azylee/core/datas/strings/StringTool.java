@@ -3,6 +3,8 @@ package com.yuzhyn.azylee.core.datas.strings;
 import com.yuzhyn.azylee.core.datas.collections.ListTool;
 import com.yuzhyn.azylee.core.logs.Alog;
 
+import java.util.*;
+
 public class StringTool {
     public static boolean ok(String s) {
         if (s != null && s.length() > 0) {
@@ -132,6 +134,44 @@ public class StringTool {
     }
 
     /**
+     * 字符串拆分
+     *
+     * @param s
+     * @param regex
+     * @param filterSpace
+     * @param filterRepeat
+     * @return
+     */
+    public static String[] split(String s, String regex, boolean filterSpace, boolean filterRepeat) {
+        if (ok(s)) {
+            String[] array = s.split(regex);
+            // 过滤空格
+            List<String> list = new ArrayList<>();
+            for (String item : array) {
+                if (filterSpace) {
+                    if (StringTool.ok(item.trim())) {
+                        list.add(item);
+                    }
+                } else {
+                    list.add(item);
+                }
+            }
+            // 过滤重复值
+            if (!filterRepeat) {
+                return list.toArray(new String[list.size()]);
+            } else {
+                Set<String> sets = new HashSet<>();
+                for (String item : list) {
+                    sets.add(item);
+                }
+                return sets.toArray(new String[sets.size()]);
+            }
+        } else {
+            return null;
+        }
+    }
+
+    /**
      * 字符串数组合并
      *
      * @param lines
@@ -173,19 +213,26 @@ public class StringTool {
         return combineArray(lines, StringConst.NEWLINE);
     }
 
+
+
     public static void main(String[] args) {
-        String a = "1";
-        String b = null;
-        Alog.v("rs: " + StringTool.ok(a, b));
 
-        Alog.v(StringTool.reverse("12345"));
-
-
-        Alog.i("->   " + "456789".indexOf("456"));
-
-        String x = "123";
-        String y = "null";
-
-        Alog.i(StringTool.ok(x, y));
+        Alog.i(">");
+        String[] rs = split(" 12 3 3 32 2 13     2 ", " ", true, true);
+        Alog.i(Arrays.asList(rs));
+        Alog.i("<");
+//        String a = "1";
+//        String b = null;
+//        Alog.v("rs: " + StringTool.ok(a, b));
+//
+//        Alog.v(StringTool.reverse("12345"));
+//
+//
+//        Alog.i("->   " + "456789".indexOf("456"));
+//
+//        String x = "123";
+//        String y = "null";
+//
+//        Alog.i(StringTool.ok(x, y));
     }
 }
