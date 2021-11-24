@@ -3,6 +3,7 @@ package com.yuzhyn.azylee.core.datas.strings;
 import com.yuzhyn.azylee.core.datas.collections.ListTool;
 import com.yuzhyn.azylee.core.logs.Alog;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class StringTool {
@@ -217,10 +218,16 @@ public class StringTool {
 
     public static void main(String[] args) {
 
-        Alog.i(">");
-        String[] rs = split(" 12 3 3 32 2 13     2 ", " ", true, true);
-        Alog.i(Arrays.asList(rs));
-        Alog.i("<");
+        BigDecimal num = new BigDecimal("1.5393");
+
+        System.out.println(num);
+
+//        Alog.i(">");
+//        String[] rs = split(" 12 3 3 32 2 13     2 ", " ", true, true);
+//        Alog.i(Arrays.asList(rs));
+//        Alog.i("<");
+
+
 //        String a = "1";
 //        String b = null;
 //        Alog.v("rs: " + StringTool.ok(a, b));

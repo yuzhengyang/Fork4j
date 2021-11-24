@@ -25,6 +25,14 @@ public class HtmlStringTool {
         return "";
     }
 
+    public static String newLineBrFotmat(String s) {
+        if (StringTool.ok(s)) {
+            String[] strings = StringTool.splitLine(s);
+            return StringTool.combineArray(strings, "<br />");
+        }
+        return "";
+    }
+
     public static void main(String[] args) {
 
         String keywords = "张三 哪 买 什";
