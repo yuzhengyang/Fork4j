@@ -215,7 +215,6 @@ public class StringTool {
     }
 
 
-
     public static void main(String[] args) {
 
         BigDecimal num = new BigDecimal("1.5393");
@@ -236,10 +235,10 @@ public class StringTool {
 //
 //
 //        Alog.i("->   " + "456789".indexOf("456"));
-//
-//        String x = "123";
-//        String y = "null";
-//
-//        Alog.i(StringTool.ok(x, y));
+
+        String x = "123";
+        String y = "null";
+
+        Alog.i(StringTool.ok(x, y, null));
     }
 }
