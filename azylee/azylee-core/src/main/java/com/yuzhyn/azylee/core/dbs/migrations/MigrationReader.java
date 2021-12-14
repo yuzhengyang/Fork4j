@@ -1,8 +1,6 @@
 package com.yuzhyn.azylee.core.dbs.migrations;
 
 import com.yuzhyn.azylee.core.datas.collections.ListTool;
-import com.yuzhyn.azylee.core.dbs.bases.MigrationInfo;
-import com.yuzhyn.azylee.core.dbs.bases.MigrationItem;
 
 import java.util.ArrayList;
 import java.util.List;
