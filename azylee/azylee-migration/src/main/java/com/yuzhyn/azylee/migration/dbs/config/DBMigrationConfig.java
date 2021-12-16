@@ -3,14 +3,14 @@ package com.yuzhyn.azylee.migration.dbs.config;
 import pers.yuzhyn.azylee.core.dbs.bases.DbType;
 
 public class DBMigrationConfig {
-    private DbType type;
+    private String type;
     private String url;
     private String driverClass;
     private String user;
     private String password;
     private String table;
 
-    DBMigrationConfig(DbType type, String url, String driverClass, String user, String password, String table) {
+    DBMigrationConfig(String type, String url, String driverClass, String user, String password, String table) {
         this.type = type;
         this.url = url;
         this.driverClass = driverClass;
@@ -19,11 +19,11 @@ public class DBMigrationConfig {
         this.table = table;
     }
 
-    public DbType getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(DbType type) {
+    public void setType(String type) {
         this.type = type;
     }
 

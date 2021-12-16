@@ -1,12 +1,10 @@
 package com.yuzhyn.azylee.migration.dbs.adapters;
 
-import com.yuzhyn.azylee.migration.dbs.DBMigration;
 import com.yuzhyn.azylee.migration.dbs.config.DBMigrationConfig;
 import com.yuzhyn.azylee.migration.dbs.entity.MigrationRecord;
 import pers.yuzhyn.azylee.core.dbs.bases.DbType;
 
 import java.util.List;
-import java.util.Map;
 
 public interface IMigrationAdapter {
 

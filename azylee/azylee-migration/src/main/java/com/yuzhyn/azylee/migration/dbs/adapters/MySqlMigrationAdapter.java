@@ -2,6 +2,7 @@ package com.yuzhyn.azylee.migration.dbs.adapters;
 
 import com.yuzhyn.azylee.migration.dbs.config.DBMigrationConfig;
 import com.yuzhyn.azylee.migration.dbs.entity.MigrationRecord;
+import pers.yuzhyn.azylee.core.datas.collections.ListTool;
 import pers.yuzhyn.azylee.core.dbs.bases.DbType;
 
 import java.sql.*;
@@ -60,11 +61,12 @@ public class MySqlMigrationAdapter implements IMigrationAdapter {
             Connection conn = DriverManager.getConnection(config.getUrl(), config.getUser(), config.getPassword());
             //3.操作数据库，实现增删改查
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT user_name, age FROM imooc_goddess");
-            //如果有数据，rs.next()返回true
-            while (rs.next()) {
-                System.out.println(rs.getString("user_name") + " 年龄：" + rs.getInt("age"));
+            if (ListTool.ok(sqlList)) {
+                for (MigrationRecord item : sqlList) {
+                    boolean flag = stmt.execute(item.getSql());
+                }
             }
+
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
