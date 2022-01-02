@@ -3,6 +3,7 @@ package com.yuzhyn.azylee.core.datas.datetimes;
 import com.yuzhyn.azylee.core.logs.Alog;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -63,6 +64,18 @@ public class DateTimeFormat {
         return null;
     }
 
+    public static String toStr(LocalDate dateTime, DateTimeFormatPattern pattern) {
+        if (dateTime != null) {
+            try {
+                DateTimeFormatter df = DateTimeFormatter.ofPattern(pattern.getPattern());
+                String s = df.format(dateTime);
+                return s;
+            } catch (Exception ex) {
+            }
+        }
+        return null;
+    }
+
     /**
      * 按照默认格式格式化日期时间
      *
@@ -71,6 +84,10 @@ public class DateTimeFormat {
      */
     public static String toStr(LocalDateTime dateTime) {
         return toStr(dateTime, DateTimeFormatPattern.NORMAL_DATETIME);
+    }
+
+    public static String toStr(LocalDate dateTime) {
+        return toStr(dateTime, DateTimeFormatPattern.NORMAL_DATE);
     }
 
     public static void main(String[] args) {
