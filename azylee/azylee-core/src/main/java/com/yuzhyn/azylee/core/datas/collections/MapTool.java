@@ -15,8 +15,8 @@ public class MapTool {
 
     /**
      * 判断 Map 存在至少一个元素
-     * @param map
-     * @return
+     * @param map 参数
+     * @return 返回
      */
     public static boolean ok(Map map) {
         if (map != null && map.size() > 0) {
@@ -27,9 +27,9 @@ public class MapTool {
 
     /**
      * 判断 Map 中存在指定 Keys，且指定的 Keys 值不为 Null
-     * @param map
-     * @param keys
-     * @return
+     * @param map 参数
+     * @param keys 参数
+     * @return 返回
      */
     public static boolean ok(Map map, String... keys) {
         if (MapTool.ok(map)) {
@@ -82,11 +82,11 @@ public class MapTool {
     /**
      * 抽取Map列表中的key值数据列表
      *
-     * @param mapList
-     * @param key
-     * @param <K>
-     * @param <T>
-     * @return
+     * @param mapList 参数
+     * @param key 参数
+     * @param <K> 参数
+     * @param <T> 参数
+     * @return 返回
      */
     public static <K, T> List<T> extract(List<Map<K, T>> mapList, K key) {
         List<T> result = new ArrayList<>();

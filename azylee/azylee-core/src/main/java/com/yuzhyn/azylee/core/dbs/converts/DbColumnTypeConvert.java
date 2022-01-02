@@ -9,11 +9,11 @@ import com.yuzhyn.azylee.core.dbs.bases.DbTypeConst;
 public class DbColumnTypeConvert {
 
     /**
-     * 数据库字段类型 -> java类型
+     * 数据库字段类型 转 java类型
      *
-     * @param dbType
-     * @param columnType
-     * @return
+     * @param dbType 参数
+     * @param columnType 参数
+     * @return 返回
      */
     public static String toJavaType(DbTypeConst dbType, String columnType) {
         String result = "";
@@ -28,11 +28,11 @@ public class DbColumnTypeConvert {
     }
 
     /**
-     * java类型 -> 数据库字段类型
+     * java类型 转 数据库字段类型
      *
-     * @param dbType
-     * @param javaType
-     * @return
+     * @param dbType 参数
+     * @param javaType 参数
+     * @return 返回
      */
     public static String toColumnType(DbTypeConst dbType, String javaType) {
         switch (dbType) {

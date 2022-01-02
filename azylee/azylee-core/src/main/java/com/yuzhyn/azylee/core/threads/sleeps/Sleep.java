@@ -7,7 +7,7 @@ package com.yuzhyn.azylee.core.threads.sleeps;
 public class Sleep {
     /**
      * 等待（毫秒）
-     * @param millis
+     * @param millis 参数
      */
     public static void ms(long millis) {
         try {
@@ -18,7 +18,7 @@ public class Sleep {
 
     /**
      * 等待（秒）
-     * @param second
+     * @param second 参数
      */
     public static void s(long second) {
         try {
@@ -29,7 +29,7 @@ public class Sleep {
 
     /**
      * 等待（分钟）
-     * @param minute
+     * @param minute 参数
      */
     public static void m(long minute) {
         try {

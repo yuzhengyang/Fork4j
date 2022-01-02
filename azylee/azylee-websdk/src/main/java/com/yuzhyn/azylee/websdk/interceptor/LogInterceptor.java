@@ -75,7 +75,7 @@ public class LogInterceptor implements HandlerInterceptor {
     /**
      * 记录请求日志
      *
-     * @param request
+     * @param request 参数
      */
     private void createLog(String step, HttpServletRequest request) {
         try {

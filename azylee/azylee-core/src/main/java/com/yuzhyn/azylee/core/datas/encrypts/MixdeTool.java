@@ -10,8 +10,8 @@ public class MixdeTool {
      * 说明：字符串正序和倒序混合
      * 长度：64位
      *
-     * @param s
-     * @return
+     * @param s 参数
+     * @return 返回
      */
     public static String md5Mix(String s) {
         String rs1 = Md5Tool.encrypt(s);
@@ -24,9 +24,9 @@ public class MixdeTool {
      * 两组字符串混合
      * 说明：适用于账号密码混合
      * 长度：64位
-     * @param s1
-     * @param s2
-     * @return
+     * @param s1 参数
+     * @param s2 参数
+     * @return 返回
      */
     public static String md5Mix(String s1, String s2) {
         String rs1 = Md5Tool.encrypt(s1);

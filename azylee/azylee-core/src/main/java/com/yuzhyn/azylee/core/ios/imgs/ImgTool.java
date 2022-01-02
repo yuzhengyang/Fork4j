@@ -16,8 +16,7 @@ public class ImgTool {
      * @param y  纵坐标
      * @param w  长
      * @param h  高
-     * @throws IOException
-     * @date
+     * @throws IOException 异常
      */
 //    public static BufferedImage cutImage(MultipartFile file, int x, int y, int w, int h, String prefix) {
 //
@@ -42,8 +41,7 @@ public class ImgTool {
      * 图片旋转指定角度
      * @param bufferedimage 图像
      * @param degree      角度
-     * @return
-     * @date
+     * @return 返回
      */
     public static BufferedImage rotateImage(BufferedImage bufferedimage, int degree) {
         int w = bufferedimage.getWidth();

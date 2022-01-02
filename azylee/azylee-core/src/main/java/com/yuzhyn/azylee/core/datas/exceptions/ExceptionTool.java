@@ -7,8 +7,8 @@ public class ExceptionTool {
 
     /**
      * 获取异常堆栈信息
-     * @param e
-     * @return
+     * @param e 参数
+     * @return 返回
      */
     public static String getStackTrace(Exception e) {
         StringWriter sw = new StringWriter();

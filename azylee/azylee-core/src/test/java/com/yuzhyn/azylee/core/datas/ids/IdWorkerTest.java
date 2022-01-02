@@ -9,7 +9,7 @@ public class IdWorkerTest {
     /**
      * main 测试类
      *
-     * @param args
+     * @param args 参数
      */
     public static void main(String[] args) {
 

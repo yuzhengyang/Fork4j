@@ -34,9 +34,9 @@ public enum FileTypeEnum {
     /**
      * 构造函数
      *
-     * @param type
-     * @param desc
-     * @param exts
+     * @param type 参数
+     * @param desc 参数
+     * @param exts 参数
      */
     FileTypeEnum(String type, String desc, String[] exts) {
         this.type = type;

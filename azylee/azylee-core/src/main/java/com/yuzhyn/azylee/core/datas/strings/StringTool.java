@@ -47,9 +47,9 @@ public class StringTool {
      * 开头字符计数
      * 如：开头有几个空格
      *
-     * @param s
-     * @param ch
-     * @return
+     * @param s 参数
+     * @param ch 参数
+     * @return 返回
      */
     public static int startCharSize(String s, char ch) {
         int size = 0;
@@ -66,9 +66,9 @@ public class StringTool {
     /**
      * 缩进空格
      *
-     * @param s
-     * @param size
-     * @return
+     * @param s 参数
+     * @param size 参数
+     * @return 返回
      */
     public static String retractSpace(String s, int size) {
         if (ok(s)) {
@@ -85,8 +85,8 @@ public class StringTool {
     /**
      * 字符串分行
      *
-     * @param s
-     * @return
+     * @param s 参数
+     * @return 返回
      */
     public static String[] splitLine(String s) {
         if (ok(s)) {
@@ -105,7 +105,7 @@ public class StringTool {
      * @param size          拆分个数限制
      * @param combineString 超过限制的合并连接符
      * @param filterSpace   过滤空格内容
-     * @return
+     * @return 返回
      */
     public static String[] splitLine(String s, String regex, int size, String combineString, boolean filterSpace) {
         String[] result = new String[size];
@@ -137,11 +137,11 @@ public class StringTool {
     /**
      * 字符串拆分
      *
-     * @param s
-     * @param regex
-     * @param filterSpace
-     * @param filterRepeat
-     * @return
+     * @param s 参数
+     * @param regex 参数
+     * @param filterSpace 参数
+     * @param filterRepeat 参数
+     * @return 返回
      */
     public static String[] split(String s, String regex, boolean filterSpace, boolean filterRepeat) {
         if (ok(s)) {
@@ -175,9 +175,9 @@ public class StringTool {
     /**
      * 字符串数组合并
      *
-     * @param lines
-     * @param joinString
-     * @return
+     * @param lines 参数
+     * @param joinString 参数
+     * @return 返回
      */
     public static String combineArray(String[] lines, String joinString) {
         if (ListTool.ok(lines)) {
@@ -196,8 +196,8 @@ public class StringTool {
     /**
      * 缩进空格，按分行自动缩进，最后再组装为字符串
      *
-     * @param s
-     * @return
+     * @param s 参数
+     * @return 返回
      */
     public static String retractSpaceArrayAuto(String s) {
         int spaceSize = Integer.MAX_VALUE;

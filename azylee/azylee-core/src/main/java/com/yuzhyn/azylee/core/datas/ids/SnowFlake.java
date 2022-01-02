@@ -121,8 +121,8 @@ public class SnowFlake {
     /**
      * 当某一毫秒的时间，产生的id数 超过4095，系统会进入等待，直到下一毫秒，系统继续产生ID
      *
-     * @param lastTimestamp
-     * @return
+     * @param lastTimestamp 参数
+     * @return 返回
      */
     private long tilNextMillis(long lastTimestamp) {
 

@@ -85,7 +85,7 @@ public class SystemTypeTool {
     /**
      * 获取操作系统名字
      *
-     * @return 操作系统名
+     * @return 返回 操作系统名
      */
     public static SystemType getOSname() {
         if (isAix()) {
@@ -129,7 +129,7 @@ public class SystemTypeTool {
     }
 
     /**
-     * @param args
+     * @param args 参数
      */
     public static void main(String[] args) {
         System.out.println(SystemTypeTool.getOSname());// 获取系统类型

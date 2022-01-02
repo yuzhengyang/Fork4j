@@ -30,7 +30,7 @@ public class FileVersionManager {
 
     /**
      * 初始化管理器
-     * @param pathName
+     * @param pathName 参数
      */
     public FileVersionManager(String pathName) {
         this(pathName, 5);
@@ -38,8 +38,8 @@ public class FileVersionManager {
 
     /**
      * 初始化管理器
-     * @param pathName
-     * @param versionSize
+     * @param pathName 参数
+     * @param versionSize 参数
      */
     public FileVersionManager(String pathName, int versionSize) {
         this.pathName = pathName;
@@ -50,7 +50,7 @@ public class FileVersionManager {
 
     /**
      * 计算下一版本文件名
-     * @return
+     * @return 返回
      */
     private String nextName() {
         return this.fileName + FILE_SP + DateTimeFormat.toStr(new Date(), DateTimeFormatPattern.SHORT_DATETIME) + FILE_EXT;
@@ -58,7 +58,7 @@ public class FileVersionManager {
 
     /**
      * 创建下一版本文件
-     * @return
+     * @return 返回
      */
     public String create() {
         // 创建历史版本备份
@@ -78,7 +78,7 @@ public class FileVersionManager {
 
     /**
      * 清理历史版本文件（保留x个）
-     * @param retain
+     * @param retain 参数
      */
     public void clean(int retain) {
         List<String> list = versionList();
@@ -91,7 +91,7 @@ public class FileVersionManager {
 
     /**
      * 版本文件列表
-     * @return
+     * @return 返回
      */
     public List<String> versionList() {
         List<String> result = new ArrayList<>();

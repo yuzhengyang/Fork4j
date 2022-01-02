@@ -16,9 +16,9 @@ public class LongTool {
     /**
      * 从int字符串转换为long数值
      * 特殊目的：强制降低转换精度，防止long计算溢出
-     * @param s
-     * @param defaultValue
-     * @return
+     * @param s 参数
+     * @param defaultValue 参数
+     * @return 返回
      */
     public static long parseFromInts(String s, long defaultValue) {
         int num = IntTool.parse(s, (int) defaultValue);

@@ -9,10 +9,10 @@ public class ObjectTool {
 
     /**
      * 空对象处理，简化代码
-     * @param obj
-     * @param defaultValue
-     * @param <T>
-     * @return
+     * @param obj 参数
+     * @param defaultValue 参数
+     * @param <T> 参数
+     * @return 返回
      */
     public static <T> T optional(T obj, T defaultValue) {
         try {

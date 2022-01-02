@@ -22,7 +22,7 @@ public class DateTimeFormat {
      *
      * @param date    日期
      * @param pattern 格式
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toStr(Date date, DateTimeFormatPattern pattern) {
         if (date != null) {
@@ -38,7 +38,7 @@ public class DateTimeFormat {
      * 按照默认格式格式化日期时间
      *
      * @param date 日期
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toStr(Date date) {
         return toStr(date, DateTimeFormatPattern.NORMAL_DATETIME);
@@ -49,7 +49,7 @@ public class DateTimeFormat {
      *
      * @param dateTime 日期时间
      * @param pattern  格式
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toStr(LocalDateTime dateTime, DateTimeFormatPattern pattern) {
         if (dateTime != null) {
@@ -67,7 +67,7 @@ public class DateTimeFormat {
      * 按照默认格式格式化日期时间
      *
      * @param dateTime 日期时间
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toStr(LocalDateTime dateTime) {
         return toStr(dateTime, DateTimeFormatPattern.NORMAL_DATETIME);
