@@ -2,6 +2,10 @@ package com.yuzhyn.azylee.core.datas.datetimes;
 
 public enum DateTimeFormatPattern {
     /**
+     * 月
+     */
+    SHORT_MONTH("MM"),
+    /**
      * 短年月
      */
     SHORT_YEAR_MONTH("yyyyMM"),
@@ -9,6 +13,10 @@ public enum DateTimeFormatPattern {
      * 短日期：20201124
      */
     SHORT_DATE("yyyyMMdd"),
+    /**
+     * 标准日期年月
+     */
+    NORMAL_YEAR_MONTH("yyyy-MM"),
     /**
      * 标准日期：2020-11-24
      */

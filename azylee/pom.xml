@@ -7,7 +7,7 @@
     <name>azylee</name>
     <groupId>top.yuzhyn</groupId>
     <artifactId>azylee</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     <description>快速开发工具类，与先前的C#Fork工具类一样，该工具是针对于Java的工具类库</description>
     <url>https://github.com/yuzhengyang/Fork4j</url>

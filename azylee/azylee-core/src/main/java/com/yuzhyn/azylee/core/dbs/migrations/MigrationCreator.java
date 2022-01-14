@@ -5,11 +5,11 @@ package com.yuzhyn.azylee.core.dbs.migrations;
  * 用来创建记录每一次的数据库结构及信息改变脚本
  */
 public class MigrationCreator {
-    public MigrationInfo create(MigrationItem... items) {
-        MigrationInfo migrationInfo = new MigrationInfo();
-        for (MigrationItem item : items) {
-            migrationInfo.addMigrationItem(item);
-        }
-        return migrationInfo;
-    }
+//    public MigrationInfo create(MigrationItem... items) {
+//        MigrationInfo migrationInfo = new MigrationInfo();
+//        for (MigrationItem item : items) {
+//            migrationInfo.addMigrationItem(item);
+//        }
+//        return migrationInfo;
+//    }
 }

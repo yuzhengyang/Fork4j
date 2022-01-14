@@ -1,7 +1,11 @@
 package com.yuzhyn.azylee.core.datas.numbers;
 
+import com.yuzhyn.azylee.core.datas.collections.ListTool;
 import com.yuzhyn.azylee.core.datas.strings.StringFillTool;
 import com.yuzhyn.azylee.core.logs.Alog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class IntTool {
     public static int parse(String s, int defaultValue) {
@@ -14,6 +18,39 @@ public class IntTool {
         return num;
     }
 
+    public static Integer parse(String s) {
+        Integer num = null;
+        try {
+            num = Integer.parseInt(s);
+        } catch (Exception ex) {
+        }
+        return num;
+    }
+
+    public static int[] convert(String[] array) {
+        List<Integer> list = new ArrayList<>();
+        if (ListTool.ok(array)) {
+            for (String s : array) {
+                Integer n = parse(s);
+                if (n != null) {
+                    list.add(n);
+                }
+            }
+        }
+        int[] integerArray = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            integerArray[i] = list.get(i);
+        }
+        return integerArray;
+    }
+
+    public static boolean inArray(int[] array, int number) {
+        for (Integer item : array) {
+            if (item == number) return true;
+        }
+        return false;
+    }
+
     public static String toStr(int num, int length) {
         if (length < 1) length = 1;
         String s = String.valueOf(num);
@@ -22,7 +59,13 @@ public class IntTool {
     }
 
     public static void main(String[] args) {
-        System.out.println(IntTool.toStr(1, 2));
-        System.out.println(IntTool.toStr(1995, 2));
+//        System.out.println(IntTool.toStr(1, 2));
+//        System.out.println(IntTool.toStr(1995, 2));
+//        System.out.println(IntTool.parse("AB"));
+//        System.out.println(IntTool.inArray(new int[]{1, 2, 3}, 2));
+//        String[] array1 = new String[]{"05", "08", "12"};
+//        int[] array2 = IntTool.convert(array1);
+//        System.out.println(IntTool.inArray(array2, 12));
+
     }
 }

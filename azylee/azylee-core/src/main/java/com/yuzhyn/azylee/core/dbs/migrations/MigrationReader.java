@@ -10,15 +10,15 @@ import java.util.List;
  * 用来获取需要执行的数据库迁移命令
  */
 public class MigrationReader {
-    public List<MigrationItem> readyItem(MigrationInfo migrationInfo, Long currentId) {
-        List<MigrationItem> resultList = new ArrayList<>();
-        if (ListTool.ok(migrationInfo.getMigrationItems())) {
-            for (MigrationItem item : migrationInfo.getMigrationItems()) {
-                if (item.getId() > currentId) {
-                    resultList.add(item);
-                }
-            }
-        }
-        return resultList;
-    }
+//    public List<MigrationItem> readyItem(MigrationInfo migrationInfo, Long currentId) {
+//        List<MigrationItem> resultList = new ArrayList<>();
+//        if (ListTool.ok(migrationInfo.getMigrationItems())) {
+//            for (MigrationItem item : migrationInfo.getMigrationItems()) {
+//                if (item.getId() > currentId) {
+//                    resultList.add(item);
+//                }
+//            }
+//        }
+//        return resultList;
+//    }
 }

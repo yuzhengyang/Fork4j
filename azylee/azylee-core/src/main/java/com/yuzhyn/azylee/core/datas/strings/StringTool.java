@@ -47,7 +47,7 @@ public class StringTool {
      * 开头字符计数
      * 如：开头有几个空格
      *
-     * @param s 参数
+     * @param s  参数
      * @param ch 参数
      * @return 返回
      */
@@ -66,7 +66,7 @@ public class StringTool {
     /**
      * 缩进空格
      *
-     * @param s 参数
+     * @param s    参数
      * @param size 参数
      * @return 返回
      */
@@ -137,9 +137,9 @@ public class StringTool {
     /**
      * 字符串拆分
      *
-     * @param s 参数
-     * @param regex 参数
-     * @param filterSpace 参数
+     * @param s            参数
+     * @param regex        参数
+     * @param filterSpace  参数
      * @param filterRepeat 参数
      * @return 返回
      */
@@ -175,7 +175,7 @@ public class StringTool {
     /**
      * 字符串数组合并
      *
-     * @param lines 参数
+     * @param lines      参数
      * @param joinString 参数
      * @return 返回
      */
@@ -214,6 +214,34 @@ public class StringTool {
         return combineArray(lines, StringConst.NEWLINE);
     }
 
+
+    public static String replace(String inString, String oldPattern, String newPattern) {
+        if (ok(inString) && ok(oldPattern) && newPattern != null) {
+            int index = inString.indexOf(oldPattern);
+            if (index == -1) {
+                return inString;
+            } else {
+                int capacity = inString.length();
+                if (newPattern.length() > oldPattern.length()) {
+                    capacity += 16;
+                }
+
+                StringBuilder sb = new StringBuilder(capacity);
+                int pos = 0;
+
+                for (int patLen = oldPattern.length(); index >= 0; index = inString.indexOf(oldPattern, pos)) {
+                    sb.append(inString, pos, index);
+                    sb.append(newPattern);
+                    pos = index + patLen;
+                }
+
+                sb.append(inString, pos, inString.length());
+                return sb.toString();
+            }
+        } else {
+            return inString;
+        }
+    }
 
     public static void main(String[] args) {
 
