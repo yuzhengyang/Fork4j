@@ -3,7 +3,6 @@ package com.yuzhyn.azylee.core.datas.encrypts;
 import com.yuzhyn.azylee.core.datas.exceptions.ExceptionTool;
 import com.yuzhyn.azylee.core.datas.strings.StringFillTool;
 import com.yuzhyn.azylee.core.datas.strings.StringTool;
-import com.yuzhyn.azylee.core.logs.Alog;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -55,11 +54,11 @@ public class DesTool {
      * 加密
      *
      * @param data 参数
-     * @param key 参数
+     * @param key  参数
      * @return 返回
      */
     public static byte[] encrypt(byte[] data, String key) {
-        try{
+        try {
             SecureRandom random = new SecureRandom();
             DESKeySpec desKey = new DESKeySpec(key.getBytes());
             //创建一个密匙工厂，然后用它把DESKeySpec转换成
@@ -72,7 +71,7 @@ public class DesTool {
             //现在，获取数据并加密
             //正式执行加密操作
             return cipher.doFinal(data);
-        }catch(Throwable e){
+        } catch (Throwable e) {
             e.printStackTrace();
         }
         return null;
@@ -95,7 +94,7 @@ public class DesTool {
      * 加密
      *
      * @param text 参数
-     * @param key 参数
+     * @param key  参数
      * @return 返回
      */
     public static String encrypt(String text, String key) {
@@ -117,10 +116,10 @@ public class DesTool {
      * 解密
      *
      * @param data 参数
-     * @param key 参数
+     * @param key  参数
      * @return 返回
      */
-    public static byte[] decrypt(byte[] data, String key) throws  Exception{
+    public static byte[] decrypt(byte[] data, String key) throws Exception {
         // DES算法要求有一个可信任的随机数源
         SecureRandom random = new SecureRandom();
         // 创建一个DESKeySpec对象
@@ -152,29 +151,40 @@ public class DesTool {
     public static String decrypt(String text, String key) {
         if (StringTool.ok(text, key)) {
             try {
-                byte[] bytes = decrypt(text.getBytes(CHARSET), key);
+                byte[] bytes = decrypt(Base64.getDecoder().decode(text), key);
                 return new String(bytes, CHARSET);
             } catch (Exception ex) {
-                Alog.i("*********************************");
-                Alog.e(ExceptionTool.getStackTrace(ex));
-                Alog.i("*********************************");
+                System.out.println(ExceptionTool.getStackTrace(ex));
                 ex.printStackTrace();
             }
         }
         return text;
     }
 
-    public static void main(String[] args) {
-        String name = "飞雪连天射白鹿";
-        String key = "yuzhengyang11111111111111111111111111112222222222222222222222222";
-        String xtext = encrypt(name, key);
-        String dxtext = decrypt(xtext, key);
-        System.out.println("xtext " + xtext);
-        System.out.println("dxtext " + dxtext);
+    public static void main(String[] args) throws Exception {
+//        {
+//            String name = "飞雪连天射白鹿";
+//            String key = "yuzhengyang11111111111111111111111111112222222222222222222222222";
+//            String xtext = encrypt(name, key);
+//            String dxtext = decrypt(xtext, key);
+//            System.out.println("xtext " + xtext);
+//            System.out.println("dxtext " + dxtext);
+//
+//            Alog.i("-------------------------");
+//            Alog.i(": " + Md5Tool.encrypt(DesTool.encrypt("yuzhengyang","yuzhengyang")));
+//
+//            Alog.i(decrypt("0AEKBflb5ZkNwVy6qCXTIQ==","12345678"));
+//        }
 
-        Alog.i("-------------------------");
-        Alog.i(": " + Md5Tool.encrypt(DesTool.encrypt("yuzhengyang","yuzhengyang")));
+        {
+            String name = "飞雪连天射白鹿";
+            String key = Md5Tool.encrypt("asdf");
+            String m = encrypt(name, key);
+            System.out.println(m);
 
-        Alog.i(decrypt("0AEKBflb5ZkNwVy6qCXTIQ==","12345678"));
+            String j = decrypt(m, key);
+            System.out.println(j);
+
+        }
     }
 }
