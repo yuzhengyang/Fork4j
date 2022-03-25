@@ -2,6 +2,12 @@ package com.yuzhyn.azylee.core.datas.numbers;
 
 public class RandomTool {
 
+    /**
+     * 获取随机数，包含两端
+     * @param min
+     * @param max
+     * @return
+     */
     public static int get(int min, int max) {
         if (max < min) {
             int tmp = max;

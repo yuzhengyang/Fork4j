@@ -243,7 +243,18 @@ public class StringTool {
         }
     }
 
+    public String[] array2TreeArray(String[] array,String combineString){
+        String[] result = new String[array.length];
+
+        return result;
+    }
+
     public static void main(String[] args) {
+
+        String[] array = new String[]{"1","3","5"};
+        String[] array1 = Arrays.copyOf(array, 0);
+        String[] array2= Arrays.copyOf(array, 1);
+
 
         BigDecimal num = new BigDecimal("1.5393");
 

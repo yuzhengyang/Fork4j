@@ -3,6 +3,10 @@ package com.yuzhyn.azylee.core.datas.strings;
 import com.yuzhyn.azylee.core.datas.collections.ListTool;
 import com.yuzhyn.azylee.core.logs.Alog;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class HtmlStringTool {
     public static String keywordsHightLight(String text, String keywords, String begTag, String endTag) {
         if (StringTool.ok(text)) {
@@ -34,6 +38,12 @@ public class HtmlStringTool {
     }
 
     public static void main(String[] args) {
+
+        String[] s1 = new String[]{"123","234"};
+        String[] s2 = new String[]{"123","234"};
+        Set<String> set = new HashSet<>();
+        set.addAll(Arrays.asList(s1));
+        set.addAll(Arrays.asList(s2));
 
         String keywords = "张三 哪 买 什";
         String s = "张三 李四 王五 去赶集 上哪去  去买什么，买点鸡蛋";
