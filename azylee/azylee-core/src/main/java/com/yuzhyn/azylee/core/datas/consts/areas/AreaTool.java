@@ -8,7 +8,7 @@ public class AreaTool {
     private List<AreaModel> areaModelList = new ArrayList<>();
 
     public void create() {
-        areaModelList.addAll(AreaCreater.create());
+//        areaModelList.addAll(AreaCreater.create());
     }
 
     /**
