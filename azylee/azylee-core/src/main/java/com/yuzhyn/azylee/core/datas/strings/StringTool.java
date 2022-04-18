@@ -276,8 +276,8 @@ public class StringTool {
 //        Alog.i("->   " + "456789".indexOf("456"));
 
         String x = "123";
-        String y = "null";
+        String y = "";
 
-        Alog.i(StringTool.ok(x, y, null));
+        Alog.i(StringTool.ok(x, y));
     }
 }
