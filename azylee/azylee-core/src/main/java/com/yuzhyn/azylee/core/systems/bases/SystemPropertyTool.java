@@ -1,4 +1,4 @@
-package com.yuzhyn.azylee.core.systems.commons;
+package com.yuzhyn.azylee.core.systems.bases;
 
 public class SystemPropertyTool {
     public static String javaVendor() {

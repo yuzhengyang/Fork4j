@@ -1,4 +1,4 @@
-package com.yuzhyn.azylee.core.systems.commons;
+package com.yuzhyn.azylee.core.systems.bases;
 
 /**
  * 操作系统类型

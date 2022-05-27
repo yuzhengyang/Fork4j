@@ -1,6 +1,7 @@
 package com.yuzhyn.azylee.core.datas.collections;
 
 import com.yuzhyn.azylee.core.datas.datetimes.LocalDateTimeTool;
+import com.yuzhyn.azylee.core.datas.numbers.DoubleTool;
 import com.yuzhyn.azylee.core.datas.numbers.IntTool;
 import com.yuzhyn.azylee.core.datas.numbers.LongTool;
 import com.yuzhyn.azylee.core.logs.Alog;
@@ -15,6 +16,7 @@ public class MapTool {
 
     /**
      * 判断 Map 存在至少一个元素
+     *
      * @param map 参数
      * @return 返回
      */
@@ -27,7 +29,8 @@ public class MapTool {
 
     /**
      * 判断 Map 中存在指定 Keys，且指定的 Keys 值不为 Null
-     * @param map 参数
+     *
+     * @param map  参数
      * @param keys 参数
      * @return 返回
      */
@@ -67,6 +70,11 @@ public class MapTool {
         return LongTool.parse(s, LongTool.parse(defaultValue.toString(), 0));
     }
 
+    public static <K, T> double getDouble(Map<K, T> map, K key, T defaultValue) {
+        String s = MapTool.getString(map, key, defaultValue);
+        return DoubleTool.parse(s, DoubleTool.parse(defaultValue.toString(), 0.0));
+    }
+
     public static <K, T> boolean getBoolean(Map<K, T> map, K key, T defaultValue) {
         String s = MapTool.getString(map, key, defaultValue);
         return Boolean.valueOf(s);
@@ -83,9 +91,9 @@ public class MapTool {
      * 抽取Map列表中的key值数据列表
      *
      * @param mapList 参数
-     * @param key 参数
-     * @param <K> 参数
-     * @param <T> 参数
+     * @param key     参数
+     * @param <K>     参数
+     * @param <T>     参数
      * @return 返回
      */
     public static <K, T> List<T> extract(List<Map<K, T>> mapList, K key) {

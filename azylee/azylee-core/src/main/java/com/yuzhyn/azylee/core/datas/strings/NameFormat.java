@@ -45,4 +45,22 @@ public class NameFormat {
         }
         return result.toString();
     }
+
+    public static String firstCharToLower(String name) {
+        StringBuilder result = new StringBuilder();
+        if (name != null && name.length() > 0) {
+            // 循环处理字符
+            for (int i = 0; i < name.length(); i++) {
+                String s = name.substring(i, i + 1);
+                if (i == 0) s = s.toLowerCase();
+                result.append(s);
+            }
+        }
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(firstCharToLower("zhangWuJi"));
+        System.out.println(firstCharToLower("ZhouZhiRuo"));
+    }
 }
