@@ -3,9 +3,9 @@ package com.yuzhyn.azylee.core.datas.numbers;
 public class RandomTool {
 
     /**
-     * 获取随机数，包含两端
-     * @param min
-     * @param max
+     * 通过范围区间，获取整数随机数
+     * @param min 最小值（包含）
+     * @param max 最大值（包含）
      * @return
      */
     public static int get(int min, int max) {

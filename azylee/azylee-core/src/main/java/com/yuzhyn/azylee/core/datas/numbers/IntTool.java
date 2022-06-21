@@ -8,6 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IntTool {
+    /**
+     * 创建整数数组列表
+     *
+     * @param begin 从?开始（包含）
+     * @param end   到?结束（包含）
+     * @return
+     */
+    public static List<Integer> createIntegerList(int begin, int end) {
+        List<Integer> list = new ArrayList<>();
+        int min = Math.min(begin, end);
+        int max = Math.max(begin, end);
+        for (int i = min; i <= max; i++) {
+            list.add(i);
+        }
+        return list;
+    }
+
     public static int parse(String s, int defaultValue) {
         int num = defaultValue;
         try {
