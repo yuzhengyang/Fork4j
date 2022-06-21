@@ -1,5 +1,14 @@
 package com.yuzhyn.azylee.core.datas.ids;
 
+import com.yuzhyn.azylee.core.datas.collections.ListTool;
+import com.yuzhyn.azylee.core.datas.numbers.IntTool;
+import com.yuzhyn.azylee.core.datas.numbers.RandomTool;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
+
 /**
  * 雪花算法ID
  */
@@ -139,10 +148,50 @@ public class SnowFlake {
         return System.currentTimeMillis();
     }
 
-    public static void main(String[] args) {
-        SnowFlake snowFlake = new SnowFlake(100, 100, 0);
-        for (int i = 0; i < 10; i++) {
-            System.out.println(snowFlake.nextId());
+    /**
+     * 自动计算数据中心ID和机器ID
+     *
+     * @param currentDataCenterIds 当前已有的数据中心ID
+     * @param currentWorkerIds     当前已有的机器ID
+     * @param random               是否随机，否则为顺序生成
+     * @return 返回数组[0]-数据中心ID，[1]-机器ID（没有可以指派的ID时，返回-1）
+     */
+    public static int[] createDataCenterIdAndWorkerId(List<Integer> currentDataCenterIds, List<Integer> currentWorkerIds, boolean random) {
+        int[] result = new int[]{-1, -1};
+        List<Integer> dataCenterIds = IntTool.createIntegerList(0, 31);
+        List<Integer> workerIds = IntTool.createIntegerList(0, 31);
+        if (ListTool.ok(currentDataCenterIds)) dataCenterIds.removeAll(currentDataCenterIds);
+        if (ListTool.ok(currentWorkerIds)) workerIds.removeAll(currentWorkerIds);
+
+        if (ListTool.ok(dataCenterIds)) {
+            if (random) {
+                result[0] = dataCenterIds.get(RandomTool.get(0, dataCenterIds.size() - 1));
+            } else {
+                result[0] = dataCenterIds.get(0);
+            }
         }
+        if (ListTool.ok(currentWorkerIds)) {
+            if (random) {
+                result[1] = workerIds.get(RandomTool.get(0, workerIds.size() - 1));
+            } else {
+                result[1] = workerIds.get(0);
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+
+        List<Integer> dcs = Arrays.asList(0, 0, 0, 0);
+        List<Integer> wks = Arrays.asList(0, 1, 2, 1);
+        for (int i = 0; i < 100; i++) {
+            int[] rs = SnowFlake.createDataCenterIdAndWorkerId(dcs, wks, true);
+            System.out.println("data-center-id: " + rs[0] + ", worker-id: " + rs[1]);
+        }
+
+//        SnowFlake snowFlake = new SnowFlake(100, 100, 0);
+//        for (int i = 0; i < 10; i++) {
+//            System.out.println(snowFlake.nextId());
+//        }
     }
 }
