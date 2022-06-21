@@ -249,6 +249,22 @@ public class StringTool {
         return result;
     }
 
+
+    /**
+     * 从列表中，查询包含内容的项
+     * @param list 字符串列表
+     * @param value 要匹配的内容（contains）
+     * @return 返回第一个匹配的索引下标
+     */
+    public static int itemLike(List<String> list, String value) {
+        if (ListTool.ok(list)) {
+            for (int i = 0; i < list.size(); i++) {
+                if (StringTool.ok(list.get(i)) && list.get(i).contains(value)) return i;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
 
         String[] array = new String[]{"1","3","5"};

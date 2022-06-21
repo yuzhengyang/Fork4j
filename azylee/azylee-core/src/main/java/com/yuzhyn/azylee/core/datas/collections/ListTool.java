@@ -48,14 +48,6 @@ public class ListTool {
         return defaultValue;
     }
 
-    public static int itemLike(List<String> list, String value) {
-        if (ListTool.ok(list)) {
-            for (int i = 0; i < list.size(); i++) {
-                if (StringTool.ok(list.get(i)) && list.get(i).contains(value)) return i;
-            }
-        }
-        return -1;
-    }
 
     public static void main(String[] args) {
         List<String> list1 = Arrays.asList("1");
