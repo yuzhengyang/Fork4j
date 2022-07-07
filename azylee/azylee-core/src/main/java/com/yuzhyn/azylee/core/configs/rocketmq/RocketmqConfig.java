@@ -17,7 +17,7 @@ public class RocketmqConfig {
      * 根据指定名称获取生产者配置信息
      *
      * @param name
-     * @return
+     * @return 返回
      */
     public RockermqProducerConfig getProducer(String name) {
         String upperName = name.toUpperCase();
@@ -38,7 +38,7 @@ public class RocketmqConfig {
     /**
      * 获取默认生产者配置信息
      *
-     * @return
+     * @return 返回
      */
     private RockermqProducerConfig getDefaultProducer() {
         RockermqProducerConfig result = new RockermqProducerConfig();
@@ -58,7 +58,7 @@ public class RocketmqConfig {
      * 根据指定名称获取消费者配置信息
      *
      * @param name
-     * @return
+     * @return 返回
      */
     public RockermqConsumerConfig getConsumer(String name) {
         String upperName = name.toUpperCase();
@@ -79,7 +79,7 @@ public class RocketmqConfig {
     /**
      * 获取默认消费者配置信息
      *
-     * @return
+     * @return 返回
      */
     private RockermqConsumerConfig getDefaultConsumer() {
         RockermqConsumerConfig result = new RockermqConsumerConfig();

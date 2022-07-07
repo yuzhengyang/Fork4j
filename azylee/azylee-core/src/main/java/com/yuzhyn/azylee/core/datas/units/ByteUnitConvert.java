@@ -7,7 +7,7 @@ public class ByteUnitConvert {
      *
      * @param size 参数
      * @param digits 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String fmt(long size, int digits) {
         return fmt((double) size, digits);
@@ -18,7 +18,7 @@ public class ByteUnitConvert {
      *
      * @param size 参数
      * @param digits 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String fmt(double size, int digits) {
         String rs = "";
@@ -42,7 +42,7 @@ public class ByteUnitConvert {
      *
      * @param size 参数
      * @param unit 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static double cvt(long size, String unit) {
         return cvt((double) size, unit);
@@ -53,7 +53,7 @@ public class ByteUnitConvert {
      *
      * @param size 参数
      * @param unit 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static double cvt(double size, String unit) {
         switch (unit) {

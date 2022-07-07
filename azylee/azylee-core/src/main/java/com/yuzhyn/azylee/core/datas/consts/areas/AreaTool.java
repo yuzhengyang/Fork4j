@@ -13,14 +13,14 @@ public class AreaTool {
 
     /**
      * 获取省列表
-     * @return
+     * @return 返回
      */
     public List<AreaModel> getProvince() {
         return areaModelList.stream().filter(x -> x.getLevelType() == 1).collect(Collectors.toList());
     }
     /**
      * 获取城市列表
-     * @return
+     * @return 返回
      */
     public List<AreaModel> getProvince(String name) {
         // 首先应该按照名称获取省信息，然后通过父id过滤出城市列表

@@ -49,7 +49,7 @@ public class StringTool {
      *
      * @param s  参数
      * @param ch 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static int startCharSize(String s, char ch) {
         int size = 0;
@@ -68,7 +68,7 @@ public class StringTool {
      *
      * @param s    参数
      * @param size 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String retractSpace(String s, int size) {
         if (ok(s)) {
@@ -86,7 +86,7 @@ public class StringTool {
      * 字符串分行
      *
      * @param s 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String[] splitLine(String s) {
         if (ok(s)) {
@@ -105,7 +105,7 @@ public class StringTool {
      * @param size          拆分个数限制
      * @param combineString 超过限制的合并连接符
      * @param filterSpace   过滤空格内容
-     * @return 返回
+     * @return 返回 返回
      */
     public static String[] splitLine(String s, String regex, int size, String combineString, boolean filterSpace) {
         String[] result = new String[size];
@@ -141,7 +141,7 @@ public class StringTool {
      * @param regex        参数
      * @param filterSpace  参数
      * @param filterRepeat 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String[] split(String s, String regex, boolean filterSpace, boolean filterRepeat) {
         if (ok(s)) {
@@ -177,7 +177,7 @@ public class StringTool {
      *
      * @param lines      参数
      * @param joinString 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String combineArray(String[] lines, String joinString) {
         if (ListTool.ok(lines)) {
@@ -197,7 +197,7 @@ public class StringTool {
      * 缩进空格，按分行自动缩进，最后再组装为字符串
      *
      * @param s 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String retractSpaceArrayAuto(String s) {
         int spaceSize = Integer.MAX_VALUE;
@@ -254,7 +254,7 @@ public class StringTool {
      * 从列表中，查询包含内容的项
      * @param list 字符串列表
      * @param value 要匹配的内容（contains）
-     * @return 返回第一个匹配的索引下标
+     * @return 返回 返回第一个匹配的索引下标
      */
     public static int itemLike(List<String> list, String value) {
         if (ListTool.ok(list)) {

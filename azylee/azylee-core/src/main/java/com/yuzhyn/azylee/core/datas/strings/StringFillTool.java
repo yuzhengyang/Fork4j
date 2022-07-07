@@ -10,7 +10,7 @@ public class StringFillTool {
      * @param s 参数
      * @param length 参数
      * @param filler 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String prefixFill(String s, int length, String filler) {
         String result = s;
@@ -26,7 +26,7 @@ public class StringFillTool {
      * @param s 参数
      * @param length 参数
      * @param filler 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String suffixFill(String s, int length, String filler) {
         String result = s;

@@ -85,7 +85,7 @@ public class SystemTypeTool {
     /**
      * 获取操作系统名字
      *
-     * @return 返回 操作系统名
+     * @return 返回 返回 操作系统名
      */
     public static SystemType getOSname() {
         if (isAix()) {

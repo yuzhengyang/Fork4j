@@ -68,8 +68,8 @@ public class WebSdkStarter {
     /**
      * 启用功能
      *
-     * @param dataCenterId
-     * @param workerId
+     * @param dataCenterId 参数
+     * @param workerId 参数
      */
     public static void run(int dataCenterId, int workerId) throws Exception {
 

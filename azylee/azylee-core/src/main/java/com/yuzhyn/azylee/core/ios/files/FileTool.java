@@ -61,7 +61,7 @@ public class FileTool {
      *
      * @param source 参数
      * @param target 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static boolean copy(String source, String target) {
         try (FileInputStream inputStream = new FileInputStream(new File(source));
@@ -83,7 +83,7 @@ public class FileTool {
      * @param source 参数
      * @param target 参数
      * @param overwrite 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static boolean copy(String source, String target, boolean overwrite) {
         if (overwrite) {
@@ -127,7 +127,7 @@ public class FileTool {
      * 获取文件扩展名
      *
      * @param s 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String getExt(String s) {
         if (StringTool.ok(s)) {
@@ -161,7 +161,7 @@ public class FileTool {
      * 获取文件名
      *
      * @param s 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String getName(String s) {
         if (StringTool.ok(s)) {
@@ -179,7 +179,7 @@ public class FileTool {
      * 获取文件路径
      *
      * @param s 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String getPath(String s) {
         if (StringTool.ok(s)) {

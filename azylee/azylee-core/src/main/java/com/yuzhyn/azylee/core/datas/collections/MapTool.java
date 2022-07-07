@@ -18,7 +18,7 @@ public class MapTool {
      * 判断 Map 存在至少一个元素
      *
      * @param map 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static boolean ok(Map map) {
         if (map != null && map.size() > 0) {
@@ -32,7 +32,7 @@ public class MapTool {
      *
      * @param map  参数
      * @param keys 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static boolean ok(Map map, String... keys) {
         if (MapTool.ok(map)) {
@@ -94,7 +94,7 @@ public class MapTool {
      * @param key     参数
      * @param <K>     参数
      * @param <T>     参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static <K, T> List<T> extract(List<Map<K, T>> mapList, K key) {
         List<T> result = new ArrayList<>();

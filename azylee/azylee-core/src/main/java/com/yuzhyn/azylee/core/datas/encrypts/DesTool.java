@@ -39,7 +39,7 @@ public class DesTool {
      * 创建Key
      *
      * @param key 参数
-     * @return 返回
+     * @return 返回 返回
      * @throws Exception 异常
      */
     private static Key generateKey(String key) throws Exception {
@@ -55,7 +55,7 @@ public class DesTool {
      *
      * @param data 参数
      * @param key  参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static byte[] encrypt(byte[] data, String key) {
         try {
@@ -95,7 +95,7 @@ public class DesTool {
      *
      * @param text 参数
      * @param key  参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String encrypt(String text, String key) {
         if (StringTool.ok(text, key)) {
@@ -117,7 +117,7 @@ public class DesTool {
      *
      * @param data 参数
      * @param key  参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static byte[] decrypt(byte[] data, String key) throws Exception {
         // DES算法要求有一个可信任的随机数源

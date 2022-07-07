@@ -46,7 +46,7 @@ public class DirTool {
     /**
      * 删除目录及目录下的文件
      * @param path 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static boolean delete(String path) {
         // 如果dir不以文件分隔符结尾，自动添加文件分隔符

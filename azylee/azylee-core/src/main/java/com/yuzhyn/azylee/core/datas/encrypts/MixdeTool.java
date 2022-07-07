@@ -11,7 +11,7 @@ public class MixdeTool {
      * 长度：64位
      *
      * @param s 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String md5Mix(String s) {
         String rs1 = Md5Tool.encrypt(s);
@@ -26,7 +26,7 @@ public class MixdeTool {
      * 长度：64位
      * @param s1 参数
      * @param s2 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String md5Mix(String s1, String s2) {
         String rs1 = Md5Tool.encrypt(s1);

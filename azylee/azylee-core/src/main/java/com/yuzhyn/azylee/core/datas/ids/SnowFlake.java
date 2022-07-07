@@ -131,7 +131,7 @@ public class SnowFlake {
      * 当某一毫秒的时间，产生的id数 超过4095，系统会进入等待，直到下一毫秒，系统继续产生ID
      *
      * @param lastTimestamp 参数
-     * @return 返回
+     * @return 返回 返回
      */
     private long tilNextMillis(long lastTimestamp) {
 
@@ -154,7 +154,7 @@ public class SnowFlake {
      * @param currentDataCenterIds 当前已有的数据中心ID
      * @param currentWorkerIds     当前已有的机器ID
      * @param random               是否随机，否则为顺序生成
-     * @return 返回数组[0]-数据中心ID，[1]-机器ID（没有可以指派的ID时，返回-1）
+     * @return 返回 返回数组[0]-数据中心ID，[1]-机器ID（没有可以指派的ID时，返回-1）
      */
     public static int[] createDataCenterIdAndWorkerId(List<Integer> currentDataCenterIds, List<Integer> currentWorkerIds, boolean random) {
         int[] result = new int[]{-1, -1};

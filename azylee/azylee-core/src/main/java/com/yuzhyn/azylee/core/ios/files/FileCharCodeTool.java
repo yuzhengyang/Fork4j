@@ -24,7 +24,7 @@ public class FileCharCodeTool {
      * 计算文件 MD5
      *
      * @param file 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String md5(File file) {
         try (InputStream stream = Files.newInputStream(file.toPath(), StandardOpenOption.READ)) {
@@ -48,7 +48,7 @@ public class FileCharCodeTool {
      * 计算SHA1码
      *
      * @param file 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String sha1(File file) {
         try (FileInputStream in = new FileInputStream(file);

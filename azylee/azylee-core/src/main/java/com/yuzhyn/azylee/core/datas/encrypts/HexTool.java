@@ -8,7 +8,7 @@ public class HexTool {
      * 字符串 转 十六进制
      *
      * @param s 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toHex(String s) {
         return HexTool.toHex(s.getBytes());
@@ -18,7 +18,7 @@ public class HexTool {
      * 字节数组 转 十六进制
      *
      * @param b 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toHex(byte[] b) {
         StringBuffer result = new StringBuffer();
@@ -34,7 +34,7 @@ public class HexTool {
      * @param src 参数
      * @param charset 参数
      * @param toCharset 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toString(String src, String charset, String toCharset) {
         byte[] bts = hex2Bytes(src);
@@ -52,7 +52,7 @@ public class HexTool {
     /**
      * 十六进制字符串 转 字节数组
      * @param src 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static byte[] hex2Bytes(String src) {
         int l = src.length() / 2;

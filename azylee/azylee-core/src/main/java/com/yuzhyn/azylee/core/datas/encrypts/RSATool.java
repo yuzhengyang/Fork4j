@@ -45,10 +45,12 @@ public class RSATool {
     }
 
     /**
-     * 得到公钥
+     得到公钥
      *
      * @param publicKey 密钥字符串（经过base64编码）
-     * @throws Exception
+     * @return
+     * @throws NoSuchAlgorithmException 异常
+     * @throws InvalidKeySpecException 异常
      */
     public static RSAPublicKey getPublicKey(String publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
         // 通过X509编码的Key指令获得公钥对象
@@ -59,10 +61,12 @@ public class RSATool {
     }
 
     /**
-     * 得到私钥
+     得到私钥
      *
      * @param privateKey 密钥字符串（经过base64编码）
-     * @throws Exception
+     * @return
+     * @throws NoSuchAlgorithmException 异常
+     * @throws InvalidKeySpecException 异常
      */
     public static RSAPrivateKey getPrivateKey(String privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException {
         // 通过PKCS#8编码的Key指令获得私钥对象
@@ -75,9 +79,9 @@ public class RSATool {
     /**
      * 公钥加密
      *
-     * @param data
-     * @param publicKey
-     * @return
+     * @param data 参数
+     * @param publicKey 参数
+     * @return 返回
      */
     public static String publicEncrypt(String data, RSAPublicKey publicKey) {
         try {
@@ -92,9 +96,9 @@ public class RSATool {
     /**
      * 私钥解密
      *
-     * @param data
-     * @param privateKey
-     * @return
+     * @param data 参数
+     * @param privateKey 参数
+     * @return 返回
      */
 
     public static String privateDecrypt(String data, RSAPrivateKey privateKey) {
@@ -112,7 +116,7 @@ public class RSATool {
      *
      * @param data
      * @param privateKey
-     * @return
+     * @return 返回
      */
 
     public static String privateEncrypt(String data, RSAPrivateKey privateKey) {
@@ -131,7 +135,7 @@ public class RSATool {
      *
      * @param data
      * @param publicKey
-     * @return
+     * @return 返回
      */
 
     public static String publicDecrypt(String data, RSAPublicKey publicKey) {

@@ -6,7 +6,7 @@ public class RandomTool {
      * 通过范围区间，获取整数随机数
      * @param min 最小值（包含）
      * @param max 最大值（包含）
-     * @return
+     * @return 返回
      */
     public static int get(int min, int max) {
         if (max < min) {

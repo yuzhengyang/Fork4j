@@ -18,7 +18,7 @@ public class PropertyTool {
      * @param pathName 参数
      * @param key 参数
      * @param defaultValue 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String read(String pathName, String key, String defaultValue) {
         if (FileTool.isExist(pathName)) {
@@ -38,7 +38,7 @@ public class PropertyTool {
      * 读取配置文件所有配置项及值
      *
      * @param pathName 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static Map<String, String> read(String pathName) {
         Map<String, String> result = new HashMap<>(10);

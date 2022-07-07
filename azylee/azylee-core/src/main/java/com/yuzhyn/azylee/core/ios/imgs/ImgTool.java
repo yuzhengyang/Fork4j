@@ -41,7 +41,7 @@ public class ImgTool {
      * 图片旋转指定角度
      * @param bufferedimage 图像
      * @param degree      角度
-     * @return 返回
+     * @return 返回 返回
      */
     public static BufferedImage rotateImage(BufferedImage bufferedimage, int degree) {
         int w = bufferedimage.getWidth();

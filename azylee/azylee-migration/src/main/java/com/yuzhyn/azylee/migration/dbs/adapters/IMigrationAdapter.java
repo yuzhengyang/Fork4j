@@ -19,7 +19,7 @@ public interface IMigrationAdapter {
      *
      * @param id
      * @param type
-     * @return
+     * @return 返回
      */
     List<MigrationRecord> getNewSqlData(long id, DbType type);
 

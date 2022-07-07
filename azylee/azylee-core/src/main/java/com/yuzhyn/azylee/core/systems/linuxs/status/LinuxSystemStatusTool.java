@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 public class LinuxSystemStatusTool {
     /**
      * 获取CPU使用率
-     * @return 返回
+     * @return 返回 返回
      */
     public static float getCpuUseRatio() {
         try {
@@ -55,7 +55,7 @@ public class LinuxSystemStatusTool {
 
     /**
      * 获取内存用量数据
-     * @return 返回
+     * @return 返回 返回
      */
     public static MemoryInfo getRam() {
         MemoryInfo memoryInfo = new MemoryInfo();

@@ -6,7 +6,7 @@ public class DatePassTool {
     /**
      * 计算距离现在多久，非精确
      * @param date 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String before(Date date) {
         Date now = new Date();
@@ -32,7 +32,7 @@ public class DatePassTool {
     /**
      * 计算距离现在多久，精确
      * @param date 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String beforeAccurate(Date date) {
         Date now = new Date();

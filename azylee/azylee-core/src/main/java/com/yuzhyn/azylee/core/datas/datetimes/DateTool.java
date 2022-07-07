@@ -61,7 +61,7 @@ public class DateTool {
      *
      * @param date 参数
      * @param second 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static Date addSecond(Date date, int second) {
         Long time = date.getTime();
@@ -74,7 +74,7 @@ public class DateTool {
      *
      * @param date 参数
      * @param second 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static Date addSecond(Date date, long second) {
         Long time = date.getTime();
@@ -87,7 +87,7 @@ public class DateTool {
      *
      * @param date 参数
      * @param minute 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static Date addMinute(Date date, int minute) {
         return DateTool.addSecond(date, minute * 60L);
@@ -98,7 +98,7 @@ public class DateTool {
      *
      * @param date 参数
      * @param hour 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static Date addHour(Date date, int hour) {
         return DateTool.addMinute(date, hour * 60);
@@ -109,7 +109,7 @@ public class DateTool {
      *
      * @param date 参数
      * @param day 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static Date addDay(Date date, int day) {
         return DateTool.addHour(date, day * 24);
@@ -120,7 +120,7 @@ public class DateTool {
      *
      * @param date 参数
      * @param month 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static Date addMonth(Date date, int month) {
         LocalDateTime localDateTime = LocalDateTimeTool.parse(date);
@@ -133,7 +133,7 @@ public class DateTool {
      *
      * @param date 参数
      * @param year 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static Date addYear(Date date, int year) {
         LocalDateTime localDateTime = LocalDateTimeTool.parse(date);

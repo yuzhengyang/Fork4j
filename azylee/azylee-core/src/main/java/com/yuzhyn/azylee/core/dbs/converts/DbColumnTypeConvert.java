@@ -13,7 +13,7 @@ public class DbColumnTypeConvert {
      *
      * @param dbType 参数
      * @param columnType 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toJavaType(DbTypeConst dbType, String columnType) {
         String result = "";
@@ -32,7 +32,7 @@ public class DbColumnTypeConvert {
      *
      * @param dbType 参数
      * @param javaType 参数
-     * @return 返回
+     * @return 返回 返回
      */
     public static String toColumnType(DbTypeConst dbType, String javaType) {
         switch (dbType) {
