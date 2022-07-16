@@ -1,5 +1,7 @@
 package com.yuzhyn.azylee.core.datas.regexs;
 
+import com.yuzhyn.azylee.core.datas.strings.StringTool;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -16,14 +18,15 @@ public class RegexTool {
      */
     public static List<String> getMatchs(String str, String reg) {
         List<String> resultList = new ArrayList<>();
+        if(StringTool.ok(str)){
+            Pattern patten = Pattern.compile(reg);//编译正则表达式
+            Matcher matcher = patten.matcher(str);// 指定要匹配的字符串
 
-        Pattern patten = Pattern.compile(reg);//编译正则表达式
-        Matcher matcher = patten.matcher(str);// 指定要匹配的字符串
-
-        //此处find（）每次被调用后，会偏移到下一个匹配
-        while (matcher.find()) {
-            //获取当前匹配的值
-            resultList.add(matcher.group());
+            //此处find（）每次被调用后，会偏移到下一个匹配
+            while (matcher.find()) {
+                //获取当前匹配的值
+                resultList.add(matcher.group());
+            }
         }
         return resultList;
     }
