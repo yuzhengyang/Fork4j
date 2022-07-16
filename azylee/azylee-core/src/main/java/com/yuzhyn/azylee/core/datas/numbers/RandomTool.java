@@ -4,6 +4,7 @@ public class RandomTool {
 
     /**
      * 通过范围区间，获取整数随机数
+     *
      * @param min 最小值（包含）
      * @param max 最大值（包含）
      * @return 返回
@@ -18,10 +19,26 @@ public class RandomTool {
         return num;
     }
 
+    /**
+     * 随机开关（是/否）
+     *
+     * @return 返回布尔值
+     */
+    public static boolean getBool() {
+        return get(0, 1) == 0;
+    }
+
     public static void main(String[] args) {
         for (int j = 0; j < 10; j++) {
             for (int i = 0; i < 20; i++) {
                 System.out.print(get(-1, 1) + "  ");
+            }
+            System.out.println();
+        }
+
+        for (int j = 0; j < 10; j++) {
+            for (int i = 0; i < 20; i++) {
+                System.out.print(getBool() + "  ");
             }
             System.out.println();
         }
