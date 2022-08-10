@@ -170,7 +170,7 @@ public class SnowFlake {
                 result[0] = dataCenterIds.get(0);
             }
         }
-        if (ListTool.ok(currentWorkerIds)) {
+        if (ListTool.ok(workerIds)) {
             if (random) {
                 result[1] = workerIds.get(RandomTool.get(0, workerIds.size() - 1));
             } else {
