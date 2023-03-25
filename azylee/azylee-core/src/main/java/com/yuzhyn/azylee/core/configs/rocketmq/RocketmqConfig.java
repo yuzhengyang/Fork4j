@@ -16,7 +16,7 @@ public class RocketmqConfig {
     /**
      * 根据指定名称获取生产者配置信息
      *
-     * @param name
+     * @param name name
      * @return 返回
      */
     public RockermqProducerConfig getProducer(String name) {
@@ -57,7 +57,7 @@ public class RocketmqConfig {
     /**
      * 根据指定名称获取消费者配置信息
      *
-     * @param name
+     * @param name name
      * @return 返回
      */
     public RockermqConsumerConfig getConsumer(String name) {

@@ -48,7 +48,7 @@ public class RSATool {
      得到公钥
      *
      * @param publicKey 密钥字符串（经过base64编码）
-     * @return
+     * @return 返回值
      * @throws NoSuchAlgorithmException 异常
      * @throws InvalidKeySpecException 异常
      */
@@ -64,7 +64,7 @@ public class RSATool {
      得到私钥
      *
      * @param privateKey 密钥字符串（经过base64编码）
-     * @return
+     * @return 返回值
      * @throws NoSuchAlgorithmException 异常
      * @throws InvalidKeySpecException 异常
      */
@@ -114,8 +114,8 @@ public class RSATool {
     /**
      * 私钥加密
      *
-     * @param data
-     * @param privateKey
+     * @param data 参数
+     * @param privateKey 参数
      * @return 返回
      */
 
@@ -133,8 +133,8 @@ public class RSATool {
     /**
      * 公钥解密
      *
-     * @param data
-     * @param publicKey
+     * @param data 参数
+     * @param publicKey 参数
      * @return 返回
      */
 

@@ -114,10 +114,10 @@ public class DesTool {
 
     /**
      * 解密
-     *
-     * @param data 参数
-     * @param key  参数
-     * @return 返回 返回
+     * @param data data
+     * @param key key
+     * @return 返回
+     * @throws Exception 异常
      */
     public static byte[] decrypt(byte[] data, String key) throws Exception {
         // DES算法要求有一个可信任的随机数源

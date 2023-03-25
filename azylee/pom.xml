@@ -7,7 +7,7 @@
     <name>azylee</name>
     <groupId>top.yuzhyn</groupId>
     <artifactId>azylee</artifactId>
-    <version>1.0.6</version>
+    <version>${azylee.version</version>
     <packaging>pom</packaging>
     <description>快速开发工具类，与先前的C#Fork工具类一样，该工具是针对于Java的工具类库</description>
     <url>https://github.com/yuzhengyang/Fork4j</url>
@@ -22,6 +22,7 @@
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+        <azylee.version>1.0.7</azylee.version>
     </properties>
 
 
@@ -65,15 +66,15 @@
                             <goal>jar</goal>
                         </goals>
                     </execution>
-<!--                    <execution>-->
-<!--                        <id>attach-javadocs</id>-->
-<!--                        <goals>-->
-<!--                            <goal>jar</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <additionalparam>-Xdoclint:none</additionalparam>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
+                    <!--                    <execution>-->
+                    <!--                        <id>attach-javadocs</id>-->
+                    <!--                        <goals>-->
+                    <!--                            <goal>jar</goal>-->
+                    <!--                        </goals>-->
+                    <!--                        <configuration>-->
+                    <!--                            <additionalparam>-Xdoclint:none</additionalparam>-->
+                    <!--                        </configuration>-->
+                    <!--                    </execution>-->
                 </executions>
             </plugin>
         </plugins>

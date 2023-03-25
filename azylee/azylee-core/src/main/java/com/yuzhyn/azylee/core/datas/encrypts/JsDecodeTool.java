@@ -8,8 +8,8 @@ public class JsDecodeTool {
     /**
      * web前端解码
      * 前端方法：window.btoa(encodeURIComponent(value));
-     * @param value
-     * @return
+     * @param value 值
+     * @return 返回值
      */
     public String decode(String value) {
         try {

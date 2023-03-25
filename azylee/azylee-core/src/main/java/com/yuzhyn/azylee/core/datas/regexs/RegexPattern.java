@@ -26,7 +26,7 @@ public enum RegexPattern {
      */
     REAL_POSITIVE_INTEGER_AND_ZERO(Pattern.compile("^[0-9]*[0-9][0-9]*(\\.?0+)*$")),
     /**
-     * 数字（>=0的数）
+     * 数字（ 大于等于 0的数）
      */
     POSITIVE_NUMBER_AND_ZERO(Pattern.compile("^[0-9]+([.]{1}[0-9]+){0,1}$")),
     /**
