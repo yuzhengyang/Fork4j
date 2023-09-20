@@ -7,7 +7,7 @@
     <name>azylee</name>
     <groupId>top.yuzhyn</groupId>
     <artifactId>azylee</artifactId>
-    <version>${azylee.version</version>
+    <version>1.0.7</version>
     <packaging>pom</packaging>
     <description>快速开发工具类，与先前的C#Fork工具类一样，该工具是针对于Java的工具类库</description>
     <url>https://github.com/yuzhengyang/Fork4j</url>
@@ -22,7 +22,6 @@
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-        <azylee.version>1.0.7</azylee.version>
     </properties>
 
 
@@ -98,7 +97,7 @@
                     <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
                 </snapshotRepository>
                 <repository>
-                    <id>release</id>
+                    <id>releases</id>
                     <name>Nexus Release Repository</name>
                     <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>

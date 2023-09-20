@@ -147,26 +147,26 @@ public class StringTool {
         if (ok(s)) {
             String[] array = s.split(regex);
             // 过滤空格
-            List<String> list = new ArrayList<>();
+            List<String> list = new ArrayList<String>();
+            Set<String> sets = new HashSet<String>();
             for (String item : array) {
-                if (filterSpace) {
-                    if (StringTool.ok(item.trim())) {
+                boolean canAdd = false;
+
+                if (filterSpace) if (StringTool.ok(item.trim())) canAdd = true;
+                else canAdd = true;
+
+                if (canAdd) {
+                    if (filterRepeat) {
+                        if (!sets.contains(item)) {
+                            list.add(item);
+                            sets.add(item);
+                        }
+                    } else {
                         list.add(item);
                     }
-                } else {
-                    list.add(item);
                 }
             }
-            // 过滤重复值
-            if (!filterRepeat) {
-                return list.toArray(new String[list.size()]);
-            } else {
-                Set<String> sets = new HashSet<>();
-                for (String item : list) {
-                    sets.add(item);
-                }
-                return sets.toArray(new String[sets.size()]);
-            }
+            return list.toArray(new String[list.size()]);
         } else {
             return null;
         }
@@ -243,7 +243,7 @@ public class StringTool {
         }
     }
 
-    public String[] array2TreeArray(String[] array,String combineString){
+    public String[] array2TreeArray(String[] array, String combineString) {
         String[] result = new String[array.length];
 
         return result;
@@ -252,7 +252,8 @@ public class StringTool {
 
     /**
      * 从列表中，查询包含内容的项
-     * @param list 字符串列表
+     *
+     * @param list  字符串列表
      * @param value 要匹配的内容（contains）
      * @return 返回 返回第一个匹配的索引下标
      */
@@ -267,9 +268,9 @@ public class StringTool {
 
     public static void main(String[] args) {
 
-        String[] array = new String[]{"1","3","5"};
+        String[] array = new String[]{"1", "3", "5"};
         String[] array1 = Arrays.copyOf(array, 0);
-        String[] array2= Arrays.copyOf(array, 1);
+        String[] array2 = Arrays.copyOf(array, 1);
 
 
         BigDecimal num = new BigDecimal("1.5393");

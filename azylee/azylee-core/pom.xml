@@ -5,12 +5,24 @@
     <artifactId>azylee-core</artifactId>
     <name>azylee-core</name>
     <description>核心工具类，不引用其他包的工具全部包含于此。</description>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 
     <parent>
         <artifactId>azylee</artifactId>
         <groupId>top.yuzhyn</groupId>
-        <version>${azylee.version}</version>
+        <version>1.0.7</version>
     </parent>
 
 </project>

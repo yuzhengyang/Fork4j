@@ -10,7 +10,7 @@
     <parent>
         <artifactId>azylee</artifactId>
         <groupId>top.yuzhyn</groupId>
-        <version>${azylee.version}</version>
+        <version>1.0.7</version>
     </parent>
 
 
