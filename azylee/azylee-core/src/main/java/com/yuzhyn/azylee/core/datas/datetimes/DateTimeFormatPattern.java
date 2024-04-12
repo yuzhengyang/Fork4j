@@ -1,5 +1,9 @@
 package com.yuzhyn.azylee.core.datas.datetimes;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 public enum DateTimeFormatPattern {
     /**
      * 月
@@ -40,11 +44,27 @@ public enum DateTimeFormatPattern {
     /**
      * 标准时间-带毫秒：14:40:00.659
      */
-    NORMAL_TIME_MS("HH:mm:ss.SSS");
+    NORMAL_TIME_MS("HH:mm:ss.SSS"),
+    /**
+     * 标准日期时间-带时区：2020-11-24T14:40:00+0800
+     */
+    NORMAL_DATETIME_TIMEZONE("yyyy-MM-dd'T'HH:mm:ss" + getTimeZone());
 
 
     public static String[] getDateTimePattern() {
         return new String[]{NORMAL_DATETIME.getPattern(), NORMAL_DATETIME_SP.getPattern(), SHORT_DATETIME.getPattern()};
+    }
+
+
+    private static String timeZone;
+
+    public static String getTimeZone() {
+        if (timeZone == null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("Z");
+            sdf.setTimeZone(TimeZone.getDefault());
+            timeZone = sdf.format(new Date());
+        }
+        return timeZone;
     }
 
     //region 属性、构造函数、Getter And Setter
