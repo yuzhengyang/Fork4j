@@ -1,6 +1,5 @@
 package com.yuzhyn.azylee.core.ios.files;
 
-import com.yuzhyn.azylee.core.ios.buffers.MappedByteBufferTool;
 import com.yuzhyn.azylee.core.logs.Alog;
 import com.yuzhyn.azylee.core.datas.encrypts.HexTool;
 import com.yuzhyn.azylee.core.datas.encrypts.Sha1Tool;
@@ -56,7 +55,7 @@ public class FileCharCodeTool {
             MessageDigest messagedigest = MessageDigest.getInstance("SHA-1");
             MappedByteBuffer byteBuffer = ch.map(FileChannel.MapMode.READ_ONLY, 0, file.length());
             messagedigest.update(byteBuffer);
-            MappedByteBufferTool.unmap(byteBuffer);
+//            MappedByteBufferTool.unmap(byteBuffer);
             return Sha1Tool.encrypt(messagedigest.digest());
         } catch (Exception ex) {
             Alog.e(ex.getMessage());

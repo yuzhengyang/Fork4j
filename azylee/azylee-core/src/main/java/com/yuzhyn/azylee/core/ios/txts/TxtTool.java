@@ -11,6 +11,11 @@ import java.util.List;
 
 public class TxtTool {
 
+    public static String read(String pathName) {
+        List<String> result = readLine(pathName);
+        return String.join("", result);
+    }
+
     public static List<String> readLine(String pathName) {
         List<String> result = null;
         if (FileTool.isExist(pathName)) {
@@ -52,11 +57,13 @@ public class TxtTool {
     }
 
     public static void main(String[] args) {
-        Alog.e(DirTool.parent("d://niu"));
-        Alog.e(DirTool.parent("d://"));
-        Alog.e(DirTool.parent("/opt/ssa"));
-        Alog.e(DirTool.parent("/opt"));
-        Alog.e(DirTool.parent("/"));
+        String.join("-", "a", "b", "c");
+
+//        Alog.e(DirTool.parent("d://niu"));
+//        Alog.e(DirTool.parent("d://"));
+//        Alog.e(DirTool.parent("/opt/ssa"));
+//        Alog.e(DirTool.parent("/opt"));
+//        Alog.e(DirTool.parent("/"));
 //        {
 //            String pp = "d:\\tmp\\niu\\ya\\t1.txt";
 //            FileTool.recreate(pp);
