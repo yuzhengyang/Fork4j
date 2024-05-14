@@ -6,6 +6,9 @@ import com.yuzhyn.azylee.core.ios.files.FileTool;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.util.Enumeration;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
@@ -62,17 +65,24 @@ public class ZipTool {
      * @param targetFolder 输出的文件名
      * @throws IOException 当然报io错误咯
      */
-    public static void unzip(String zipFilePath, String targetPath, String targetFolder) throws IOException {
+    public static void unzip(String zipFilePath, String targetPath, String targetFolder, Function<Map<String, Object>, Boolean> callback) throws IOException {
 
         String finalTargetPath = DirTool.combine(targetPath, targetFolder);
         if (!DirTool.create(finalTargetPath)) throw new IOException("创建文件夹失败");
         if (!FileTool.isExist(zipFilePath)) throw new IOException("未发现zip文件");
 
+        Integer fileCount = 0, fileIndex = 0;
+        Long curFileSize = 0L, curFileRead = 0L;
+
         File file = new File(zipFilePath);
         //用GBK能解决很多问题
         ZipFile zipFile = new ZipFile(file, Charset.forName("GBK"));
         Enumeration<?> zipE = zipFile.entries();
+        fileCount = zipFile.size();
+
         while (zipE.hasMoreElements()) {
+            fileIndex++;
+            curFileRead = 0L;
             ZipEntry zipEntry = (ZipEntry) zipE.nextElement();
             String savePath = DirTool.combine(finalTargetPath, zipEntry.getName());
             if (zipEntry.isDirectory()) {
@@ -83,22 +93,36 @@ public class ZipTool {
                 FileTool.delete(savePath);
                 uFile.createNewFile();
 
+                curFileSize = zipEntry.getSize();
                 try (InputStream inputStream = zipFile.getInputStream(zipEntry);
                      FileOutputStream ofs = new FileOutputStream(uFile)) {
                     int length;
                     byte[] bytes = new byte[1024];
                     while ((length = inputStream.read(bytes, 0, bytes.length)) != -1) {
                         ofs.write(bytes, 0, length);
+                        curFileRead += length;
+
+                        boolean isContinue = callback.apply(Map.of("fileCount", fileCount,
+                                "fileIndex", fileIndex,
+                                "curFileSize", curFileSize,
+                                "curFileRead", curFileRead,
+                                "curFileName", zipEntry.getName()));
+                        if (!isContinue) throw new IOException("user break");
                     }
                 } catch (IOException ex) {
                     throw ex;
                 }
             }
         }
+        callback.apply(Map.of("fileCount", fileCount,
+                "fileIndex", fileIndex,
+                "curFileSize", curFileSize,
+                "curFileRead", curFileRead,
+                "curFileName", ""));
     }
 
     public static void main(String[] args) throws IOException {
-        unzip("D:\\temp\\ziptest\\temp.zip", "D:\\temp\\ziptest\\解压后", "66666");
+        // unzip("D:\\temp\\ziptest\\temp.zip", "D:\\temp\\ziptest\\解压后", "66666");
 
     }
 }

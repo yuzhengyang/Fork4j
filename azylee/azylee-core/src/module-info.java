@@ -1,3 +1,6 @@
+/**
+ * 导出包信息
+ */
 open module com.yuzhyn.azylee.core {
     requires java.sql;
     requires java.management;
@@ -26,6 +29,8 @@ open module com.yuzhyn.azylee.core {
     exports com.yuzhyn.azylee.core.ios.streams;
     exports com.yuzhyn.azylee.core.ios.txts;
     exports com.yuzhyn.azylee.core.ios.zips;
+
+    exports com.yuzhyn.azylee.core.systems.toasts;
 
     exports com.yuzhyn.azylee.core.systems.bases;
 }
