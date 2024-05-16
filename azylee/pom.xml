@@ -14,7 +14,7 @@
 
     <modules>
         <module>azylee-core</module>
-        <module>azylee-ext-web</module>
+<!--        <module>azylee-ext-web</module>-->
         <!--        <module>azylee-websdk</module>-->
     </modules>
 

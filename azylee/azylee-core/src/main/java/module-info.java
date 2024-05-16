@@ -31,6 +31,7 @@ open module com.yuzhyn.azylee.core {
     exports com.yuzhyn.azylee.core.ios.zips;
 
     exports com.yuzhyn.azylee.core.systems.toasts;
+    exports com.yuzhyn.azylee.core.threads.sleeps;
 
     exports com.yuzhyn.azylee.core.systems.bases;
 }
