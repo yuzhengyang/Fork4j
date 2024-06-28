@@ -5,6 +5,20 @@
     <artifactId>azylee-core</artifactId>
     <name>azylee-core</name>
     <description>核心工具类，不引用其他包的工具全部包含于此。</description>
+
+
+    <parent>
+        <artifactId>azylee</artifactId>
+        <groupId>top.yuzhyn</groupId>
+        <version>2.0.2</version>
+    </parent>
+
+    <dependencies>
+
+
+    </dependencies>
+
+
     <build>
         <plugins>
             <plugin>
@@ -17,12 +31,5 @@
             </plugin>
         </plugins>
     </build>
-
-
-    <parent>
-        <artifactId>azylee</artifactId>
-        <groupId>top.yuzhyn</groupId>
-        <version>2.0.0</version>
-    </parent>
 
 </project>

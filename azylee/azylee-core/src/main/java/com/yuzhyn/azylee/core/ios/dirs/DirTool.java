@@ -40,11 +40,15 @@ public class DirTool {
     }
 
     public static String combine(String path1, String path2) {
+        if (path1.endsWith(File.separator) || path2.startsWith(File.separator)) {
+            return path1 + path2;
+        }
         return path1 + File.separator + path2;
     }
 
     /**
      * 删除目录及目录下的文件
+     *
      * @param path 参数
      * @return 返回 返回
      */
@@ -76,7 +80,7 @@ public class DirTool {
     }
 
     public static void main(String[] args) {
-        boolean aa = DirTool.delete("D:\\code\\projects\\my-github-projects\\Hidoc\\03_SRC\\hidoc\\hidoc_data\\temp\\20211118\\116682060910821376");
-        int a = 0;
+//        boolean aa = DirTool.delete("D:\\code\\projects\\my-github-projects\\Hidoc\\03_SRC\\hidoc\\hidoc_data\\temp\\20211118\\116682060910821376");
+//        int a = 0;
     }
 }
