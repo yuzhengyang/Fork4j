@@ -46,6 +46,17 @@ public class DirTool {
         return path1 + File.separator + path2;
     }
 
+    public static String combine(String... paths) {
+        if (paths.length > 0) {
+            String result = paths[0];
+            for (int i = 1; i < paths.length; i++) {
+                result = combine(result, paths[i]);
+            }
+            return result;
+        }
+        return "";
+    }
+
     /**
      * 删除目录及目录下的文件
      *
