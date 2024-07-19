@@ -22,7 +22,7 @@
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-        <azylee.version>2.0.1</azylee.version>
+        <azylee.version>2.0.5</azylee.version>
         <fastjson2.version>2.0.49</fastjson2.version>
     </properties>
 
