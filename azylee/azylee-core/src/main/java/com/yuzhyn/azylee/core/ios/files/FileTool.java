@@ -102,6 +102,15 @@ public class FileTool {
         return copyFlag;
     }
 
+    public static boolean rename(String source, String target){
+        // 创建File对象指向旧文件
+        File oldFile = new File(source);
+        // 创建File对象指向新文件名
+        File newFile = new File(target);
+        // 使用renameTo方法进行重命名
+        return oldFile.renameTo(newFile);
+    }
+
     public static boolean inputStreamToFile(InputStream inputStream, String targetFilePath, boolean overwrite) {
         try {
             if (FileTool.isExist(targetFilePath) && overwrite == false) {
