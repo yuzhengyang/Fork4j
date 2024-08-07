@@ -75,7 +75,7 @@ public class IniTool {
     }
 
     /**
-     * 保存ini配置文件 使用多文件缓冲
+     * 保存ini配置文件，保存时先备份旧文件，如果保存成功则删除备份文件
      *
      * @param file
      * @param lines
