@@ -80,8 +80,8 @@ public class FileTool {
     /**
      * 复制文件（覆盖选项自选）
      *
-     * @param source 参数
-     * @param target 参数
+     * @param source    参数
+     * @param target    参数
      * @param overwrite 参数
      * @return 返回 返回
      */
@@ -102,7 +102,7 @@ public class FileTool {
         return copyFlag;
     }
 
-    public static boolean rename(String source, String target){
+    public static boolean rename(String source, String target) {
         // 创建File对象指向旧文件
         File oldFile = new File(source);
         // 创建File对象指向新文件名
@@ -202,6 +202,17 @@ public class FileTool {
         return "";
     }
 
+    public static long getSize(String file) {
+        try {
+            if (FileTool.isExist(file)) {
+                return new File(file).length();
+            }
+        } catch (Exception ex) {
+            Alog.e(ex.getMessage());
+        }
+        return 0;
+    }
+
 
     public static void main(String[] args) {
         Alog.i(getPath("test.dxf"));
@@ -211,7 +222,6 @@ public class FileTool {
         Alog.i(getNameWithoutExt("E:\\test\\test.dxf"));
         Alog.i("-----------------------------------");
         Alog.i(getExt("E:\\test\\test.dxf"));
-
 
 
 //        {

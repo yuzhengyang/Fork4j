@@ -7,6 +7,7 @@ import com.yuzhyn.azylee.core.ios.dirs.DirTool;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TxtTool {
@@ -34,14 +35,45 @@ public class TxtTool {
     }
 
     public static boolean append(String pathName, String txt) {
+        return append(pathName, Arrays.asList(txt));
+    }
+
+    public static boolean append(String pathName, List<String> lines) {
         FileTool.create(pathName);
         if (FileTool.isExist(pathName)) {
             FileWriter writer = null;
             try {
                 File file = new File(pathName);
                 writer = new FileWriter(file, true);
-                writer.write(StringConst.NEWLINE);
-                writer.write(txt);
+                for (String line : lines) {
+                    writer.write(StringConst.NEWLINE);
+                    writer.write(line);
+                }
+                return true;
+            } catch (Exception ex) {
+            } finally {
+                if (writer != null) {
+                    try {
+                        writer.close();
+                    } catch (IOException e) {
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean create(String pathName, List<String> lines) {
+        FileTool.create(pathName);
+        if (FileTool.isExist(pathName)) {
+            FileWriter writer = null;
+            try {
+                File file = new File(pathName);
+                writer = new FileWriter(file, false);
+                for (String line : lines) {
+                    writer.write(line);
+                    writer.write(StringConst.NEWLINE);
+                }
                 return true;
             } catch (Exception ex) {
             } finally {
