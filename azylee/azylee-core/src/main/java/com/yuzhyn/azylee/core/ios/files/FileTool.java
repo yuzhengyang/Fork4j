@@ -46,9 +46,12 @@ public class FileTool {
         if (FileTool.isExist(pathName)) {
             try {
                 File file = new File(pathName);
-                file.delete();
-                file.deleteOnExit();
-                return !FileTool.isExist(pathName);
+                if (file.delete()) return true;
+                if (file.delete()) return true;
+                if (file.delete()) return true;
+
+                if (FileTool.isExist(pathName)) file.deleteOnExit();
+                return false;
             } catch (Exception ex) {
             }
             return false;
