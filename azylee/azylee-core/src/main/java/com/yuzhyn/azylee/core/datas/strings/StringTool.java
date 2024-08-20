@@ -152,8 +152,11 @@ public class StringTool {
             for (String item : array) {
                 boolean canAdd = false;
 
-                if (filterSpace) if (StringTool.ok(item.trim())) canAdd = true;
-                else canAdd = true;
+                if (filterSpace) {
+                    if (StringTool.ok(item.trim())) canAdd = true;
+                } else {
+                    canAdd = true;
+                }
 
                 if (canAdd) {
                     if (filterRepeat) {
