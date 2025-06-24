@@ -46,9 +46,12 @@ public class FileTool {
         if (FileTool.isExist(pathName)) {
             try {
                 File file = new File(pathName);
-                file.delete();
-                file.deleteOnExit();
-                return !FileTool.isExist(pathName);
+                if (file.delete()) return true;
+                if (file.delete()) return true;
+                if (file.delete()) return true;
+
+                if (FileTool.isExist(pathName)) file.deleteOnExit();
+                return false;
             } catch (Exception ex) {
             }
             return false;
@@ -80,8 +83,8 @@ public class FileTool {
     /**
      * 复制文件（覆盖选项自选）
      *
-     * @param source 参数
-     * @param target 参数
+     * @param source    参数
+     * @param target    参数
      * @param overwrite 参数
      * @return 返回 返回
      */
@@ -100,6 +103,15 @@ public class FileTool {
             boolean deleteFlag = FileTool.delete(source);
         }
         return copyFlag;
+    }
+
+    public static boolean rename(String source, String target) {
+        // 创建File对象指向旧文件
+        File oldFile = new File(source);
+        // 创建File对象指向新文件名
+        File newFile = new File(target);
+        // 使用renameTo方法进行重命名
+        return oldFile.renameTo(newFile);
     }
 
     public static boolean inputStreamToFile(InputStream inputStream, String targetFilePath, boolean overwrite) {
@@ -193,6 +205,17 @@ public class FileTool {
         return "";
     }
 
+    public static long getSize(String file) {
+        try {
+            if (FileTool.isExist(file)) {
+                return new File(file).length();
+            }
+        } catch (Exception ex) {
+            Alog.e(ex.getMessage());
+        }
+        return 0;
+    }
+
 
     public static void main(String[] args) {
         Alog.i(getPath("test.dxf"));
@@ -202,7 +225,6 @@ public class FileTool {
         Alog.i(getNameWithoutExt("E:\\test\\test.dxf"));
         Alog.i("-----------------------------------");
         Alog.i(getExt("E:\\test\\test.dxf"));
-
 
 
 //        {

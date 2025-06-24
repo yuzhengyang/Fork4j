@@ -1,7 +1,7 @@
 package com.yuzhyn.azylee.ext.web.apis.taobao;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
 import com.yuzhyn.azylee.core.datas.exceptions.ExceptionTool;
 import com.yuzhyn.azylee.core.datas.strings.StringTool;
 import okhttp3.OkHttp;
@@ -44,5 +44,9 @@ public class TaobaoTime {
         } catch (Exception ex) {
         }
         return 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getTimeStamp());
     }
 }

@@ -23,7 +23,7 @@ public class KeyValueBag {
             s = s.replaceAll("，", ",");
             s = s.replaceAll("；", ",");
 
-            String[] keyValues = StringTool.split(s, ",", true, true);
+            String[] keyValues = StringTool.split(s, ",", true, true, true);
             if (ListTool.ok(keyValues)) {
                 for (String item : keyValues) {
                     String[] pair = StringTool.splitLine(item, ":", 2, "", false);

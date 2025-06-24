@@ -1,9 +1,19 @@
 package com.yuzhyn.azylee.core.ios.dirs;
 
+import com.yuzhyn.azylee.core.datas.exceptions.ExceptionTool;
 import com.yuzhyn.azylee.core.ios.files.FileTool;
 import com.yuzhyn.azylee.core.logs.Alog;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DirTool {
     public static boolean isExist(String path) {
@@ -40,11 +50,26 @@ public class DirTool {
     }
 
     public static String combine(String path1, String path2) {
+        if (path1.endsWith(File.separator) || path2.startsWith(File.separator)) {
+            return path1 + path2;
+        }
         return path1 + File.separator + path2;
+    }
+
+    public static String combine(String... paths) {
+        if (paths.length > 0) {
+            String result = paths[0];
+            for (int i = 1; i < paths.length; i++) {
+                result = combine(result, paths[i]);
+            }
+            return result;
+        }
+        return "";
     }
 
     /**
      * 删除目录及目录下的文件
+     *
      * @param path 参数
      * @return 返回 返回
      */
@@ -75,8 +100,38 @@ public class DirTool {
         return dirFile.delete();
     }
 
+    public static boolean move(String source, String target) {
+        Path sourceDirectory = Paths.get(source);
+        Path targetDirectory = Paths.get(target);
+
+        try {
+            List<Path> paths = new ArrayList<>();
+            try {
+                paths = Files.walk(sourceDirectory).toList();
+            } catch (Exception e) {
+                Alog.e(ExceptionTool.getStackTrace(e));
+            }
+            paths.forEach(sourcePath -> {
+                try {
+                    if (Files.exists(sourcePath)) {
+                        Path targetPath = targetDirectory.resolve(sourceDirectory.relativize(sourcePath));
+                        // 如果目标路径不存在，则移动文件或创建文件夹
+                        if (Files.notExists(targetPath)) {
+                            Files.move(sourcePath, targetPath, StandardCopyOption.REPLACE_EXISTING);
+                        }
+                    }
+                } catch (IOException e) {
+                    Alog.e(ExceptionTool.getStackTrace(e));
+                }
+            });
+        } catch (Exception e) {
+            Alog.e(ExceptionTool.getStackTrace(e));
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
-        boolean aa = DirTool.delete("D:\\code\\projects\\my-github-projects\\Hidoc\\03_SRC\\hidoc\\hidoc_data\\temp\\20211118\\116682060910821376");
-        int a = 0;
+//        boolean aa = DirTool.delete("D:\\code\\projects\\my-github-projects\\Hidoc\\03_SRC\\hidoc\\hidoc_data\\temp\\20211118\\116682060910821376");
+//        int a = 0;
     }
 }
