@@ -34,4 +34,5 @@ open module com.yuzhyn.azylee.core {
     exports com.yuzhyn.azylee.core.threads.sleeps;
 
     exports com.yuzhyn.azylee.core.systems.bases;
+    exports com.yuzhyn.azylee.core.logs;
 }

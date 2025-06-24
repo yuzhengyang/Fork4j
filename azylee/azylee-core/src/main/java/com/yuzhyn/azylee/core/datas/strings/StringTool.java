@@ -143,8 +143,8 @@ public class StringTool {
      * @param filterRepeat 参数
      * @return 返回 返回
      */
-    public static String[] split(String s, String regex, boolean filterSpace, boolean filterRepeat) {
-        if (ok(s)) {
+    public static String[] split(String s, String regex, boolean filterSpace, boolean filterRepeat, boolean doTrim) {
+        if (StringTool.ok(s)) {
             String[] array = s.split(regex);
             // 过滤空格
             List<String> list = new ArrayList<String>();
@@ -161,11 +161,11 @@ public class StringTool {
                 if (canAdd) {
                     if (filterRepeat) {
                         if (!sets.contains(item)) {
-                            list.add(item);
+                            list.add(doTrim ? item.trim() : item);
                             sets.add(item);
                         }
                     } else {
-                        list.add(item);
+                        list.add(doTrim ? item.trim() : item);
                     }
                 }
             }

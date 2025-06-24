@@ -4,6 +4,7 @@ open module com.yuzhyn.azylee.ext.web {
     requires okhttp3;
     requires com.yuzhyn.azylee.core;
     requires com.alibaba.fastjson2;
+    requires jsch;
 
     exports com.yuzhyn.azylee.ext.web.apis.baidu;
     exports com.yuzhyn.azylee.ext.web.apis.ipplus;

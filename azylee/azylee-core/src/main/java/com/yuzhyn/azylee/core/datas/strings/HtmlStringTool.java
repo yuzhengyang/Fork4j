@@ -11,7 +11,7 @@ public class HtmlStringTool {
     public static String keywordsHightLight(String text, String keywords, String begTag, String endTag) {
         if (StringTool.ok(text)) {
             StringBuilder stringBuilder = new StringBuilder(text);
-            String[] keywordArray = StringTool.split(keywords, " ", true, true);
+            String[] keywordArray = StringTool.split(keywords, " ", true, true, true);
             if (ListTool.ok(keywordArray)) {
                 for (String key : keywordArray) {
                     int pos = 0;
