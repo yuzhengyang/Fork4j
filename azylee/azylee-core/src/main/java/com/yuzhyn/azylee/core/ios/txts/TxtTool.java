@@ -18,7 +18,7 @@ public class TxtTool {
     }
 
     public static List<String> readLine(String pathName) {
-        List<String> result = null;
+        List<String> result = new ArrayList<>();
         if (FileTool.isExist(pathName)) {
             try {
                 File file = new File(pathName);
@@ -86,6 +86,10 @@ public class TxtTool {
             }
         }
         return false;
+    }
+
+    public static boolean create(String pathName, String txt) {
+        return create(pathName, Arrays.asList(txt));
     }
 
     public static void main(String[] args) {

@@ -1,5 +1,7 @@
 package com.yuzhyn.azylee.core.ios.files;
 
+import com.yuzhyn.azylee.core.datas.datetimes.DateTimeFormat;
+import com.yuzhyn.azylee.core.datas.datetimes.LocalDateTimeTool;
 import com.yuzhyn.azylee.core.datas.strings.StringConst;
 import com.yuzhyn.azylee.core.datas.strings.StringTool;
 import com.yuzhyn.azylee.core.logs.Alog;
@@ -7,6 +9,12 @@ import com.yuzhyn.azylee.core.ios.dirs.DirTool;
 
 import java.io.*;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 public class FileTool {
     public static boolean isExist(String pathName) {
@@ -214,6 +222,21 @@ public class FileTool {
             Alog.e(ex.getMessage());
         }
         return 0;
+    }
+
+    public static LocalDateTime getModifiedTime(String pathName) {
+        try {
+            // 指定文件路径
+            Path path = Paths.get(pathName);
+            // 使用NIO方式获取文件属性
+            BasicFileAttributes attributes = Files.readAttributes(path, BasicFileAttributes.class);
+            // 获取最后修改时间（毫秒数）
+            long lastModifiedTime = attributes.lastModifiedTime().toMillis();
+            LocalDateTime dt = LocalDateTimeTool.parse(new Date(lastModifiedTime));
+            return dt;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 

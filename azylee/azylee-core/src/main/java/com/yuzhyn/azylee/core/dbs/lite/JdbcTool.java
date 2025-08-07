@@ -64,25 +64,26 @@ public class JdbcTool {
     public List<Map> query(String sql) throws ClassNotFoundException, SQLException {
         List<Map> resultList = new ArrayList<>();
 
-        //1.加载驱动程序
         Class.forName(this.driverClass);
-        //2. 获得数据库连接
-        Connection conn = DriverManager.getConnection(this.url, this.username, this.password);
-        //3.操作数据库，实现增删改查
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(sql);
-        ResultSetMetaData rsMetaData = rs.getMetaData();
-        int count = rsMetaData.getColumnCount();
-        //如果有数据，rs.next()返回true
-        while (rs.next()) {
-            Map record = new HashMap();
-            for (int i = 1; i <= count; i++) {
-                String _columnName = rsMetaData.getColumnName(i);
-                record.put(_columnName, rs.getObject(_columnName));
-            }
-            resultList.add(record);
-        }
+        try (Connection conn = DriverManager.getConnection(this.url, this.username, this.password);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
 
+            ResultSetMetaData rsMetaData = rs.getMetaData();
+            int count = rsMetaData.getColumnCount();
+            //如果有数据，rs.next()返回true
+            while (rs.next()) {
+                Map record = new HashMap();
+                for (int i = 1; i <= count; i++) {
+                    String label = rsMetaData.getColumnLabel(i);
+                    Object value = rs.getObject(label);
+                    record.put(label, value);
+                }
+                resultList.add(record);
+            }
+
+        } catch (Exception e) {
+        }
         return resultList;
     }
 

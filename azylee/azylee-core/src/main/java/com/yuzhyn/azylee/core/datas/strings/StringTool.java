@@ -246,6 +246,15 @@ public class StringTool {
         }
     }
 
+    public static void replace(List<String> lines, String key, String value) {
+        for (int i = 0; i < lines.size(); i++) {
+            String line = lines.get(i);
+            if (line.contains(key)) {
+                lines.set(i, line.replace(key, value));
+            }
+        }
+    }
+
     public String[] array2TreeArray(String[] array, String combineString) {
         String[] result = new String[array.length];
 
